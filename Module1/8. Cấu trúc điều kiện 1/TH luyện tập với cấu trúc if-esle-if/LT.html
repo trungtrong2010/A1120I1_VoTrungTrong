@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập</title>
+</head>
+<body>
+<script>
+    let value=prompt('Nhập tài khoản!!!');
+    if(value=='Admin'){
+        let  pass = prompt('nhập mật khẩu');
+        if ( pass == 'TheMaster'){
+            document.write('<h1>WELLCOME</h1>');
+        }
+        else if ( pass=='null'){
+            document.write('<h1>Canceled</h1>');
+        }
+        else{
+            document.write('<h1>Wrong passwword</h1>');
+        }
+    } else if ( value=='null'){
+        document.write('canceled');
+    } else {
+        document.write("I don't know you")
+    }
+</script>
+</body>
+</html>

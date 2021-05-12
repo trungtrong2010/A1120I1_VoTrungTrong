@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 2</title>
+</head>
+<body>
+
+<table>
+    <tr> <td> <input name="firstname" placeholder="Họ" size="15" type="text">
+        <input name="lastname" placeholder="Tên" size="15" type="text"> </td> </tr>
+    <tr> <td> <input type="text" placeholder="Số CMND"> </td> </tr>
+    <tr> <td> <div> Năm sinh: <input type="date"> </div> </td> </tr>
+    <tr> <td> <input name="email" placeholder="Nhập email" size="30" type="text" id="email"> </td> </tr>
+    <tr> <td> <input type="text" placeholder="Địa chỉ" id="from"> </td> </tr>
+    <tr> <td> <div> Loại thẻ:
+        <select id="customer">
+            <option disabled="disabled">Loại thẻ</option>
+            <option value="1" >Diamond</option>
+            <option value="2">Platinum</option>
+            <option value="3">Gold</option>
+            <option value="4">Silver</option>
+            <option value="5">Member</option>
+        </select>
+    </div> </td> </tr>
+    <tr> <td> <input type="number" placeholder="Giảm giá" id="voucher"> </td> </tr>
+    <tr> <td> <input type="number" placeholder="Số lượng đi kèm"> </td> </tr>
+    <tr> <td> <input type="number" placeholder="Số ngày thuê" id="days"> </td> </tr>
+    <tr> <td> <div> Loại dịch vụ:
+        <select id="money">
+            <option disabled="disabled">Loại dịch vụ</option>
+            <option value="valueVilla">Villa</option>
+            <option value="valueHouse">House</option>
+            <option>Room</option>
+        </select>
+        <select id="vip">
+            <option disabled="disabled">Loại phòng thuê</option>
+            <option value="valueVip">Vip</option>
+            <option value="valueBusiness">Business</option>
+            <option value="valueNormal">Normal</option>
+        </select>
+    </div> </td> </tr>
+    <tr> <td> <button id="submit"> Submit </button> </td> </tr>
+
+</table>
+
+<p id="result"> </p>
+
+<script>
+
+    document.getElementById('submit').addEventListener('click', convert);
+    function convert(){
+
+        //Xét loại Customer để giảm giá
+        let customer= document.getElementById('customer').value;
+        if (customer==="1"){
+            customer=15;
+        }else if (customer==="2"){
+            customer=10;
+        }else if (customer==="3"){
+            customer=5
+        }else if (customer==="4"){
+            customer=2;
+        }else customer=0;
+
+        // địa chỉ + giảm giá theo địa chỉ
+        let from= document.getElementById('from').value;
+        if (from==="Đà Nẵng"){
+            from=20;
+        }else if (from==="Huế"){
+            from=10;
+        }else if (from==="Quảng Nam"){
+            from=5;
+        }else {
+            from=0;
+        }
+
+        // nhập % giảm giá
+        let voucher= document.getElementById('voucher').value;
+
+        // số ngày thuê + giảm giá theo số ngày thuê
+        let days= document.getElementById('days').value;
+        let discountDays;
+        if (days>=2 && days<=4){
+            discountDays=10;
+        }else if (days>=5 && days<=7){
+            discountDays=20;
+        }else if (days>7) {
+            discountDays = 30;
+        }else discountDays=0;
+
+        // Loại dịch vụ
+        let room= document.getElementById('money').value;
+        if (room === "valueVilla"){
+            room =500;
+        } else if (room==="valueHouse"){
+            room=300;
+        } else {
+            room=100;
+        }
+
+        // // Loại phòng thuê
+        // let vip= document.getElementById('vip').value;
+        // if (vip==="valueVip"){
+        //     vip=
+        // }
+
+        let result= room*days*(1-voucher/100) - from -discountDays -customer  ;
+        document.getElementById('result').innerHTML= 'Result: ' + result +"$" ;
+    }
+</script>
+</body>
+</html>

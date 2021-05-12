@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>min</title>
+</head>
+<body>
+        <script>
+            let min=0;
+            function result(a,b,c) {
+                min=a;
+                for (let i=1;i<4;i++){
+                    if (min>b){
+                        min=b;
+                        if (min>c) {
+                            min=c;
+                        }
+                    }
+                }
+                return min;
+            }
+            let a = parseInt(prompt('a='));
+            let b = parseInt(prompt('b='));
+            let c = parseInt(prompt('c='));
+            alert(result(a,b,c));
+        </script>
+</body>
+</html>

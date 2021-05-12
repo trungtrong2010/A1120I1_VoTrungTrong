@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 4</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input id="name" placeholder="Họ và tên"></td>
+        <td id="resultName"></td>
+    </tr>
+    <tr>
+        <td><div>Giới tính:
+            <select id="sex">
+                <option value="man">Man</option>
+                <option value="women">Women</option>
+                <option value="bede">Bê đê</option>
+            </select>
+        </div></td>
+    </tr>
+    <tr>
+        <td>
+            <button id="add">Add</button>
+            <button id="delete">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<table border="1" id="result" style="text-align: center">
+</table>
+        <script>
+            let arrName=[];
+            let arrSex=[];
+            let result;
+
+            // Hiển thị result dạng Table
+            function table(){
+                result="<tr>\n" +
+                    "<th>Stt</th>\n" +
+                    "<th width=\"200\">Name</th>\n" +
+                    "<th width=\"100\">Giới tính</th>\n" +
+                    "</tr>";
+                for (let i=0;i<arrName.length;i++){
+                    result+="<tr>";
+                    result+="<td>"+(i+1)+"</td>";
+                    result+="<td width='200'>"+arrName[i]+"</td>";
+                    result+="<td width='100'>"+arrSex[i]+"</td>";
+                    result+="</tr>";
+                }
+                document.getElementById('result').innerHTML=result;
+            }
+
+            // CheckName;
+            function checkName(){
+                let check=true;
+                let tempName = "";
+                let resultTempName="";
+                let name = document.getElementById('name').value;
+                name = name.trim().toLowerCase();
+                // loại bỏ ký tự đặt biệt và khoảng trắng
+                for (let i = 0; i < name.length; i++) {
+                    if (name.charAt(i) !== name.charAt(i).toUpperCase() || name.charAt(i) !== name.charAt(i).toLowerCase() || name.charAt(i) === ' ') {
+                        if (name.charAt(i) === " " && name.charAt(i + 1) === " ") {
+                            continue;
+                        }
+                        tempName += name.charAt(i);
+                    } else if (name.charAt(i) === name.charAt(i).toUpperCase() || name.charAt(i) === name.charAt(i).toLowerCase()) {
+                        check = false;
+                    }
+
+                    // viết hoa
+
+                    if (j === 0 || tempName.charAt(j - 1) === ' ') {
+                        resultTempName += tempName.charAt(j).toUpperCase();
+                        continue;
+                    }
+                    resultTempName += tempName.charAt(j);
+                }
+                if (!check){
+                    document.getElementById('resultName').innerHTML=document.getElementById('name').value + ': Định dạng tên sai'
+                    arrName.pop();
+                }else{
+                    document.getElementById('resultName').innerHTML='ok';
+                    table();
+                }
+            }
+
+            //add
+            document.getElementById('add').addEventListener('click', convertAdd);
+            function convertAdd() {
+                let name=document.getElementById('name').value;
+                arrName.push(name);
+                let sex=document.getElementById('sex').value;
+                arrSex.push(sex);
+                checkName();
+            }
+
+            //delete
+            document.getElementById('delete').addEventListener('click', convertDelete);
+            function convertDelete() {
+                let name=document.getElementById('name').value;
+                let sex=document.getElementById('sex').value;
+                let stt=arrName.length;
+                for (let j=0;j<stt;j++){
+                    if (name===arrName[j] && sex===arrSex[j]){
+                        arrName.splice(j,1);
+                        arrSex.splice(j,1);
+                        j--;
+                    }
+                }
+                table();
+            }
+        </script>
+</body>
+</html>

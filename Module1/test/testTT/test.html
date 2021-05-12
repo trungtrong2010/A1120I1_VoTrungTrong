@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="abc">
+<button onclick="ok()">adsadsadas</button>
+<script>
+    function ok() {
+        let letter = /^([a-zA-Z0-9]{2,4})+$/;
+        let a = document.getElementById('abc').value;
+        if (a === '') {
+            alert('rỗng')
+        } else if (!a.match(letter)) {
+            alert('định dạng sai ' + a)
+        } else {
+            return alert('ok');
+        }
+    }
+</script>
+</body>
+</html>

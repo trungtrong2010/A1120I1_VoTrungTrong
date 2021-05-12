@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+
+        <script>
+            let mal = "<table border='3' width='600' >";
+            for(let j=1; j<11;j++){
+                mal += "<tr>";
+                for (let i = 2; i<10;i++){
+                    mal+='<td>' + i + 'x' + j + '=' + (j*i) +'</td>' ;
+                }
+                mal += '</tr>';
+            }
+            mal += '</table>';
+            document.writeln(mal);
+        </script>
+</body>
+</html>

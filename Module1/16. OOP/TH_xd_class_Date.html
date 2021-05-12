@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng lớp date</title>
+</head>
+<body>
+        <script>
+            class myDate{
+                constructor(day,month,year) {
+                    this.day=day;
+                    this.month=month;
+                    this.year=year;
+                }
+                dateDay(){
+                    return this.day;
+                }
+                dateMonth(){
+                    return this.month;
+                }
+                dateYear(){
+                    return this.year;
+                }
+            }
+            let date = new myDate(1,2,3);
+            let date2 = new myDate(2,3,4);
+            alert(date.dateDay() + '/' + date.dateMonth() + '/' + date.dateYear());
+            alert(date2.dateDay() + '/' + date2.dateMonth() + '/' + date2.dateYear());
+        </script>
+</body>
+</html>

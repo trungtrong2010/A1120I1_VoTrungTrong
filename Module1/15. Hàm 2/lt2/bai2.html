@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính diện tích + chu vi</title>
+</head>
+<body>
+
+        <script>
+            function cv(r) {
+                let chuvi=r*2*3.14;
+                return chuvi;
+            }
+            function dt(r) {
+                let dientich =r*r*3.14;
+                return dientich;
+            }
+            let r = parseInt(prompt('bán kính:'));
+            document.write('Chu vi =' + cv(r) + '<br>');
+            document.write('Diện tích =' + dt(r));
+        </script>
+</body>
+</html>

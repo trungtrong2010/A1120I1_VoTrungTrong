@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TH xây dựng lớp hình tròn</title>
+</head>
+<body>
+        <script>
+            class Circle{
+                constructor(radius,color) {
+                    this.radius=radius;
+                    this.color=color;
+                }
+                getRadius(){
+                    return this.radius;
+                }
+                getArea(){
+                    return Math.PI*this.radius*this.radius;
+                }
+            }
+            let redius = parseInt(prompt('Bán kính hình tròn bằng:'));
+            let circle = new Circle(redius);
+            alert('Bán kính= ' + circle.getRadius() + '-- Diện tích= ' + circle.getArea());
+        </script>
+</body>
+</html>

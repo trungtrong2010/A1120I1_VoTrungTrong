@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cờ</title>
+</head>
+<body>
+
+        <h3 style="margin-left: 400px">Cờ ca rô không bạn ơi .... .. ... .. .</h3>
+        <script>
+
+            class Table{
+                constructor(table,xo) {
+                    this.table=table;
+                    this.xo=xo;
+                }
+
+                getTable(){
+                    return this.table;
+                }
+                setTable(table){
+                    this.table=table;
+                }
+                getXo(){
+                    return this.xo;
+                }
+                setXo(xo){
+                    this.xo=xo;
+                }
+            }
+            let table=
+            function main_table() {
+                let xy = "<table style='margin-left: 300px;margin-top: 60px' border='1' width='500' height='500' >";
+                for (let i=0;i<20;i++){
+                    xy+='<tr>';
+                    for (let j=0;j<20;j++){
+                        xy+="<td></td>";
+                    }
+                }
+                xy+='</tr>';
+                document.write(xy+"</table>");
+            }
+            main_table();
+
+
+        </script>
+</body>
+</html>

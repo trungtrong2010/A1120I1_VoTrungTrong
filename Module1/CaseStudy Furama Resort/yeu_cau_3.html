@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 3</title>
+</head>
+<body>
+
+<table>
+<!--    Họ & tên-->
+    <tr>
+        <td><input type="text" placeholder="Enter name" id="name"></td>
+        <td id="resultName"></td>
+    </tr>
+<!--    CMND-->
+    <tr>
+        <td><input type="text" placeholder="Số CMND (9 số)" id="cmnd"></td>
+        <td id="resultCmnd"></td>
+    </tr>
+<!--    Sinh năm-->
+    <tr>
+        <td><div> Năm sinh: <input type="date" id="date"></div></td>
+        <td id="resultDate"></td>
+    </tr>
+<!--    Email-->
+    <tr>
+        <td><input name="email" placeholder="Nhập email" size="30" type="text" id="email"></td>
+        <td id="resultEmail"></td>
+    </tr>
+<!--    From-->
+    <tr>
+        <td><input type="text" placeholder="Địa chỉ" id="from"></td>
+    </tr>
+<!--    Customer-->
+    <tr>
+        <td>
+            <div> Loại thẻ:
+                <select id="customer">
+                    <option disabled="disabled">Loại thẻ</option>
+                    <option value="1">Diamond</option>
+                    <option value="2">Platinum</option>
+                    <option value="3">Gold</option>
+                    <option value="4">Silver</option>
+                    <option value="5">Member</option>
+                </select>
+            </div>
+        </td>
+    </tr>
+<!--    Voucher-->
+    <tr>
+        <td><input type="number" placeholder="Giảm giá" id="voucher"></td>
+    </tr>
+<!--    People-->
+    <tr>
+        <td><input type="number" placeholder="Số lượng đi kèm" id="people"></td>
+        <td id="checkPeople"></td>
+    </tr>
+<!--    Days-->
+    <tr>
+        <td><input type="number" placeholder="Số ngày thuê" id="days"></td>
+        <td id="checkDays"></td>
+    </tr>
+<!--    Loại dịch vụ ROOM-->
+    <tr>
+        <td>
+            <div> Loại dịch vụ:
+                <select id="money">
+                    <option disabled="disabled">Loại dịch vụ</option>
+                    <option value="valueVilla">Villa</option>
+                    <option value="valueHouse">House</option>
+                    <option>Room</option>
+                </select>
+                <select id="vip">
+                    <option disabled="disabled">Loại phòng thuê</option>
+                    <option value="valueVip">Vip</option>
+                    <option value="valueBusiness">Business</option>
+                    <option value="valueNormal">Normal</option>
+                </select>
+            </div>
+        </td>
+    </tr>
+<!--    Submit-->
+    <tr>
+        <td><button id="submit"> Submit</button></td>
+        <td id="result"></td>
+    </tr>
+</table>
+
+<script>
+    // Hàm checkName();
+    function checkName() {
+        let tempName = "";
+        let resultTempName='';
+        let name = document.getElementById('name').value;
+        name = name.trim().toLowerCase();
+        // loại bỏ ký tự đặt biệt và khoảng trắng
+        for (let i = 0; i < name.length; i++) {
+            if (name.charAt(i) !== name.charAt(i).toUpperCase() || name.charAt(i) !== name.charAt(i).toLowerCase() || name.charAt(i) === ' ') {
+                if (name.charAt(i) === " " && name.charAt(i + 1) === " ") {
+                    continue;
+                }
+                tempName += name.charAt(i);
+            }
+        }
+        // viết hoa
+        for (let j=0;j<tempName.length;j++){
+            if (j===0 || tempName.charAt(j-1)===' '){
+                resultTempName += tempName.charAt(j).toUpperCase();
+                continue;
+            }
+            resultTempName+= tempName.charAt(j);
+        }
+        name = resultTempName;
+        document.getElementById('resultName').innerHTML=name;
+    }
+    //Hàm checkCMND();
+    function checkCmnd() {
+        let sttCmnd = 0;
+        let cmnd = document.getElementById('cmnd').value;
+        if (cmnd.length === 9) {
+            for (let i = 0; i < 9; i++) {
+                if (cmnd.charAt(i) >= 0)
+                    sttCmnd++;
+            }
+        }
+        if (sttCmnd === 9) {
+            document.getElementById('resultCmnd').innerHTML = cmnd;
+        } else document.getElementById('resultCmnd').innerHTML = "sai"
+    }
+
+    //Hàm checkDate();
+    function checkDate() {
+        let date = document.getElementById('date').value;
+        let tempDate = new Date(date);
+        if (date !== "") {
+            document.getElementById('resultDate').innerHTML = tempDate.getDate() + "/" + (tempDate.getMonth() + 1) + "/" + tempDate.getFullYear();
+        } else document.getElementById('resultDate').innerHTML = "sai"
+    }
+
+    //Hàm checkEmail();
+    function checkEmail() {
+        let number = 0;
+        let numberAc = 0;
+        let numberCham = 0;
+        let email = document.getElementById('email').value;
+        for (let i = 0; i < email.length; i++) {
+            if (email.charAt(i) !== ' ') {
+                if (email.charAt(i + 1) === '@')
+                    if (email.charAt(i + 2) !== '.')
+                        if (email.charAt(email.length - 4) === '.')
+                            if (email.charAt(email.length - 3) === 'c')
+                                if (email.charAt(email.length - 2) === 'o')
+                                    if (email.charAt(email.length - 1) === 'm')
+                                        number++;
+                if (email.charAt(i) === '@')
+                    numberAc++;
+                if (email.charAt(i) === '.')
+                    numberCham++;
+            }
+            else sttAC++;
+        }
+        if (number === 1 && numberAc === 1 && numberCham === 1) {
+            document.getElementById('resultEmail').innerText = "ok"
+        } else document.getElementById('resultEmail').innerText = "Email không hợp lệ";
+    }
+
+    // Hàm checkFrom()
+    let from;
+    function checkFrom() {
+        from = document.getElementById('from').value;
+        if (from === "Đà Nẵng") {
+            from = 20;
+        } else if (from === "Huế") {
+            from = 10;
+        } else if (from === "Quảng Nam") {
+            from = 5;
+        } else {
+            from = 0;
+        }
+    }
+
+    // Hàm checkCustomer
+    let customer;
+    function checkCustomer() {
+        customer = document.getElementById('customer').value;
+        if (customer === "1") {
+            customer = 15;
+        } else if (customer === "2") {
+            customer = 10;
+        } else if (customer === "3") {
+            customer = 5
+        } else if (customer === "4") {
+            customer = 2;
+        } else customer = 0;
+    }
+
+    // Hàm checkVoucher();
+    let voucher;
+    function checkVoucher() {
+        voucher = document.getElementById('voucher').value;
+        voucher = 1 - voucher / 100;
+    }
+
+    // Hàm số người đi kèm
+    let people;
+    function checkPeople(){
+        people=document.getElementById('people').value;
+        if (people<0){
+            document.getElementById('checkPeople').innerHTML="sai"
+        }else if (people===""){
+            document.getElementById('checkPeople').innerHTML="Mục này không được bỏ trống"
+        }else document.getElementById('checkPeople').innerHTML="Số lượng người đi kèm: "+people;
+    }
+
+    // số ngày thuê + giảm giá theo số ngày thuê
+    let discountDays;
+    let days;
+    function checkDays() {
+        days = document.getElementById('days').value;
+        if (days >= 1) {
+            document.getElementById('checkDays').innerHTML='ok';
+            if (days >= 2 && days <= 4) {
+                discountDays = 10;
+            } else if (days >= 5 && days <= 7) {
+                discountDays = 20;
+            } else if (days > 7) {
+                discountDays = 30;
+            } else discountDays = 0;
+        }else document.getElementById('checkDays').innerHTML=days+" sai"
+    }
+
+    // Loại dịch vụ
+    let room;
+    function checkRoom(){
+        room = document.getElementById('money').value;
+        if (room === "valueVilla") {
+            room = 500;
+        } else if (room === "valueHouse") {
+            room = 300;
+        } else {
+            room = 100;
+        }
+
+    }
+
+    //bắt sự kiện --> RESULT
+    document.getElementById('submit').addEventListener('click', convert);
+    function convert() {
+        checkName();
+        checkCmnd();
+        checkDate();
+        checkEmail();
+        checkFrom();
+        checkCustomer();
+        checkVoucher();
+        checkPeople();
+        checkDays();
+        checkRoom();
+
+        // ------RESULT------
+        let result = room * days * voucher - from - discountDays - customer;
+        document.getElementById('result').innerHTML = 'Result: ' + result + "$";
+    }
+</script>
+</body>
+</html>

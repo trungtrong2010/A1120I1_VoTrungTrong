@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TH Sự kiện bàn phím</title>
+</head>
+<body onload="docReady()">
+        <img  id="doremon" src="2.jpg" style="position: absolute; left: 0px; top: 100px"/>
+
+        <script>
+            // xây dựng hàm khi nhấm phím lên trên bàn phím ( 4 function = 4 phím)
+            function upArrowPressed() {
+                let element = document.getElementById('doremon');
+                element.style.top= parseInt(element.style.top) -100 + 'px';
+            }
+            function downArrowPressed() {
+                let element=document.getElementById('doremon');
+                element.style.top=parseInt(element.style.top) + 100 + 'px';
+            }
+            function leftArrowPressed() {
+                let element = document.getElementById('doremon');
+                element.style.left= parseInt(element.style.left) + 100 + 'px';
+            }
+            function rightArrowPressed() {
+                let element = document.getElementById('doremon');
+                element.style.right= parseInt(element.style.right) + 100 + 'px';
+            }
+
+            // Xây dựng các hàm nhận các phím bấm trên bàn phím
+            function moveSelection(event) {
+                switch (event.keyCode) {
+                    case 37:
+                        leftArrowPressed();
+                        break;
+                    case 39:
+                        rightArrowPressed();
+                        break;
+                    case 38:
+                        upArrowPressed();
+                        break;
+                    case 'ArrowDown':
+                        downArrowPressed();
+                        break;
+                    }
+
+            }
+            function docReady() {
+                window.addEventListener('keydown', moveSelection);
+            }
+        </script>
+</body>
+</html>

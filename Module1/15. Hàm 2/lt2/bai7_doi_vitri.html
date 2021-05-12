@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hoán vị </title>
+</head>
+<body>
+        <script>
+            let temp = 0;
+            function result(a,b) {
+                let temp=a;
+                a = b;
+                b=temp;
+                return (a + '-' + b);
+            }
+            let a = parseInt(prompt('a='));
+            let b = parseInt(prompt('b='));
+            alert(result(a,b));
+        </script>
+</body>
+</html>

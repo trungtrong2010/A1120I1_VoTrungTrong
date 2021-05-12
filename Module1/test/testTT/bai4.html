@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oop</title>
+</head>
+<body>
+<div style="margin-left: 400px">
+    <h3 style="color: blue">NHẬP THÔNG TIN KHÁCH HÀNG</h3>
+    <table>
+        <tr>
+            <td><span style="color: red">*</span>Tên khách hàng:</td>
+            <td><input id="name"></td>
+        </tr>
+        <tr>
+            <td>Số điện thoại:</td>
+            <td><input id="phone"></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ:</td>
+            <td><input id="from"></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input id="email"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button onclick="convertAdd()" style="margin-left: 130px">Add</button>
+            </td>
+        </tr>
+    </table>
+    <p id="result"></p>
+</div>
+<script>
+    class Customer {
+        constructor(id = Math.floor(Math.random() * 1000000), name, phone, from, email) {
+            this.id = id;
+            this.name = name;
+            this.phone = phone;
+            this.from = from;
+            this.email = email;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getPhone() {
+            return this.phone;
+        }
+
+        setPhone(phone) {
+            this.phone = phone;
+        }
+
+        getFrom() {
+            return this.from;
+        }
+
+        setFrom(from) {
+            this.from = from;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+    }
+
+    let arrCustomer = [];
+
+    function convertAdd() {
+        let customerNew = new Customer();
+        let name = document.getElementById('name').value;
+        customerNew.setName(name);
+        let phone = document.getElementById('phone').value;
+        customerNew.setPhone(phone);
+        let from = document.getElementById('from').value;
+        customerNew.setFrom(from);
+        let email = document.getElementById('email').value;
+        customerNew.setEmail(email);
+        if (checkPhone()) {
+
+            arrCustomer.push(customerNew);
+            alert("Added new customers '"+ name + "'")
+            displayCustomer();
+        }
+    }
+
+    function displayCustomer() {
+        let table = '<h3 style="color: blue">DANH SÁCH KHÁCH HÀNG</h3>' +
+            '<table border="1" style="text-align: center" ><tr><th>Mã khách hàng</th>' +
+            '<th>Họ và tên</th><th>Số điện thoại</th><th>Địa chỉ</th><th>Email</th></tr>';
+        for (let i = 0; i < arrCustomer.length; i++) {
+            table += '<tr>' + '<td>' + arrCustomer[i].getId() + '</td>' +
+                '<td>' + arrCustomer[i].getName() + '</td>' + '<td>' + arrCustomer[i].getPhone() + '</td>' +
+                '<td>' + arrCustomer[i].getFrom() + '</td>' + '<td>' + arrCustomer[i].getEmail() + '</td>' +
+                '<td><button onclick="deleteCustomer(' + i + ')">Delete</button></td></tr>'
+        }
+        table += '</table>';
+        document.getElementById('result').innerHTML = table;
+    }
+
+    function deleteCustomer(list) {
+        let deleteName = arrCustomer[list].getName();
+        let result = confirm("Bấm OK để xác nhận xóa khách hàng '" + deleteName + "'");
+        if (result === true) {
+            arrCustomer.splice(list, 1);
+            displayCustomer();
+            alert("Deleted customer '" + deleteName+"'")
+        }
+    }
+
+
+
+    function checkPhone() {
+        let number = 0;
+        let inputPhone=document.getElementById('phone').value;
+        if (inputPhone.length === 10) {
+            for (let i = 0; i < inputPhone.length; i++) {
+                if (inputPhone.charAt(0) === '0') {
+                    if (inputPhone.charAt(i) % 1 === 0) {
+                        number++;
+                    }
+                }
+            }
+        }
+        if (number === 10) {
+            return true;
+        } else {
+            alert('Số điện thoại sai, Yêu cầu nhập lại!');
+            return false;
+        }
+    }
+
+</script>
+</body>
+</html>

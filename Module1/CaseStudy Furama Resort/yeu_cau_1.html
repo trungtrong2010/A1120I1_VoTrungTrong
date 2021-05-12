@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 1</title>
+</head>
+<body>
+
+        <table>
+            <tr> <td> <input name="firstname" placeholder="Họ" size="15" type="text"/>
+                <input name="lastname" placeholder="Tên" size="15" type="text"/> </td> </tr>
+            <tr> <td> <input type="text" placeholder="Số CMND"> </td> </tr>
+            <tr> <td> <div> Năm sinh: <input type="date"> </div> </td> </tr>
+            <tr> <td> <input name="email" placeholder="Nhập email" size="30" type="text"/> </td> </tr>
+            <tr> <td> <input type="text" placeholder="Địa chỉ"> </td> </tr>
+            <tr> <td> <div> Loại thẻ:
+                <select>
+                <option disabled="disabled">Loại thẻ</option>
+                <option value="diamond" >Diamond</option>
+                <option value="platium">Platinum</option>
+                <option value="gold">Gold</option>
+                <option value="silver">Silver</option>
+                <option value="member">Member</option>
+                </select>
+            </div> </td> </tr>
+            <tr> <td> <input type="number" placeholder="Giảm giá" id="voucher"> </td> </tr>
+            <tr> <td> <input type="number" placeholder="Số lượng đi kèm"> </td> </tr>
+            <tr> <td> <input type="number" placeholder="Số ngày thuê" id="days"> </td> </tr>
+            <tr> <td> <div> Loại dịch vụ:
+                <select id="money">
+                    <option disabled="disabled">Loại dịch vụ</option>
+                    <option value="valueVilla">Villa</option>
+                    <option value="valueHouse">House</option>
+                    <option>Room</option>
+                </select>
+                <select>
+                    <option disabled="disabled">Loại phòng thuê</option>
+                    <option>Vip</option>
+                    <option>Business</option>
+                    <option>Normal</option>
+                </select>
+            </div> </td> </tr>
+            <tr> <td> <button id="submit"> Submit </button> </td> </tr>
+        </table>
+
+    <p id="result"> </p>
+
+        <script>
+            let result=0;
+            document.getElementById('submit').addEventListener('click', convert);
+            function convert() {
+                // Phần trăm giảm
+                let voucher = document.getElementById('voucher').value;
+                voucher = 1 - voucher / 100;
+
+                // số ngày thuê
+                let days = document.getElementById('days').value;
+
+                // loại  dịch vụ
+                let money = document.getElementById('money').value;
+                if (money === "valueVilla") {
+                    result = 500;
+                } else if (money === "valueHouse") {
+                    result = 300;
+                } else {
+                    result = 100;
+                }
+                document.getElementById('result').innerHTML = 'Result: ' + result * days * voucher + "$";
+            }
+        </script>
+</body>
+</html>

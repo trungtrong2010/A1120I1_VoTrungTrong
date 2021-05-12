@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkmail</title>
+</head>
+<body>
+
+
+        <script>
+                let stt = 0;
+                let sttAC = 0;
+                let sttCham = 0;
+                let check = false;
+                do {
+                    let email = prompt('Enter Email');
+                    for (let i = 0; i < email.length; i++) {
+                        if (email.charAt(i + 1) === '@')
+                            if (email.charAt(i+2)!=='.')
+                                if (email.charAt(email.length - 4) === '.')
+                                    if (email.charAt(email.length - 3) === 'c')
+                                        if (email.charAt(email.length - 2) === 'o')
+                                            if (email.charAt(email.length - 1) === 'm')
+                                                stt++;
+                        if (email.charAt(i) === '@')
+                            sttAC++;
+                        if (email.charAt(i) === '.')
+                            sttCham++;
+                    }
+                    if (stt === 1 && sttAC === 1 && sttCham === 1) {
+                        check = true;
+                    } else {
+                        check = false;
+                    }
+                } while (!check){
+                    alert("ok")
+                }
+        </script>
+</body>
+</html>

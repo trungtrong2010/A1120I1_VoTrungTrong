@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai5</title>
+</head>
+<body>
+        <script>
+            let name=['vo','trung','trong'];
+            let ao=['ov','gnurt','gnortA'];
+            let lo=false;
+            let stt = 0;
+            function aqq(a) {
+                for (let i=0;i<=name.length;i++){
+                    if (a===name[i]){
+                        lo=true;
+                        stt = i;
+                    }
+                }
+                if (lo){
+                    alert(ao[stt]);
+                }else {
+                    alert('sai');
+                }
+            }
+           let a=prompt('a=');
+            aqq(a);
+        </script>
+</body>
+</html>

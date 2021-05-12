@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>câu 3</title>
+</head>
+<body>
+<script>
+    let check = false;
+
+    function isFibonacci(fibonacci) {
+        let result = 0;
+        let j = 1;
+        for (let i = 0;i<fibonacci; i++) {
+            result += j;
+            j = result - j;
+            if (result===fibonacci){
+                check=true;
+            }
+        }
+    }
+
+    fibonacci = parseInt(prompt('Nhập số cần kiểm tra : '));
+    isFibonacci(fibonacci);
+
+    if (check===true) {
+        alert(fibonacci + ' nằm trong dãy Fibonacci')
+    } else {
+        alert(fibonacci + ' không nằm trong dãy Fibonacci')
+    }
+</script>
+</body>
+</html>

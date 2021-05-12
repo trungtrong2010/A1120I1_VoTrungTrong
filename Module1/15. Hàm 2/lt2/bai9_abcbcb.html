@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <script>
+            let list=['a','b','c','a'];
+            let cout=0;
+            let yn= false;
+            let kiemtra= prompt('kiểm tra:');
+            function result(list) {
+                for (let i =0;i<7;i++){
+                    if (kiemtra===list[i]){
+                        cout+=1;
+                        yn=true;
+                    }
+                }
+                if (yn){
+                    
+                }else {
+                    cout = -1;
+                }
+                return cout;
+            }
+            alert(result(list));
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TH vòng lặp lồng nhau</title>
+</head>
+<body>
+
+        <script>
+            mal= "<table border=\"2\" width=\"300\">";
+            for (let i = 1; i<=10; i++){
+                mal += "<tr>";
+                for (let j=1;j<=10;j++){
+                    mal += "<td>" + i * j + "</td>";
+                }
+                mal += '</tr>';
+            }
+            mal += '</table>';
+            document.write(mal);
+        </script>
+
+</body>
+</html>

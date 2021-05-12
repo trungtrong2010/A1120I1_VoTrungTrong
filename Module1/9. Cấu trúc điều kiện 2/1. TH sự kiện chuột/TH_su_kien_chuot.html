@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TH sự kiện chuột</title>
+</head>
+<body>
+        <from>
+            <img id="myImage" src="1.jpg" style="width: 200px"/>
+            <p>Click vào ô bên dưới hình sẽ di chuyển sang trái</p>
+            <input type="button" value="Click me" onclick="moviRight()"/>
+        </from>
+
+        <script>
+            // tạo biến img để lưu ảnh
+            let img=null;
+            // sử dụng getElemById để nhận 1 đối tượng DOM và sau đó gán vào img
+            img = document.getElementById('myImage');
+            // Tạo hàm init () để khởi tạo imgObj mà chúng ta đã đặt vị trí và các thuộc tính còn lại
+            function init(){
+                //id
+                img = document.getElementById('myImage');
+                // định dạng vị trí để không gây ảnh hưởng đến vị trí + các thành phần khác (relative)
+                img.style.position = 'relative';
+                img.style.left= '0px';
+            }
+            //Tạo hàm moveRight () để tăng khoảng cách trái ?.px
+            // có thể đặt giá trị âm để di chuyển sang bên trái
+            function moviRight() {
+                img.style.left = parseInt(img.style.left) + 20 + 'px';
+            }
+            //gọi hàm init khi wed được load lần đầu
+            window.onload = init;
+
+
+        </script>
+</body>
+</html>

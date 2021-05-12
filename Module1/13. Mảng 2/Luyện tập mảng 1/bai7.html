@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai7</title>
+</head>
+<body>
+        <script>
+            let arr=[];
+            let list=parseInt(prompt('so phan tu trong mang:'));
+            let yn=false;
+            let v=parseInt(prompt('V='));
+            for (i=0;i<list;i++){
+                arr[i]=parseInt(prompt('nhap gia tri phan tu trong mang'));
+                if (v===arr[i]){
+                    arr.splice(i,1);
+                    yn=true;
+                }
+            }
+            if (yn){
+                document.writeln('Thuộc' + '<br>');
+
+
+            }else {
+                document.writeln('Không thuộc');
+            }
+            document.writeln(arr)
+        </script>
+</body>
+</html>

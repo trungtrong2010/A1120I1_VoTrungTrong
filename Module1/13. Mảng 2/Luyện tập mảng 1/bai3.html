@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai3</title>
+</head>
+<body>
+        <script>
+            let list=parseInt(prompt('nhap so phan tu trong mang'));
+            let arr=[];
+            let max=0;
+            let total=0;
+            for(let i=0;i<list;i++){
+                arr[i]=parseInt(prompt('Nhap vao 1 so'));
+                total+=arr[i];
+                if (max < arr[i]){
+                    max=arr[i];
+                }
+            }
+            document.writeln('gia tri lon nhat ' + max + '<br>');
+            document.writeln('gia tri trung binh '+ (total/list));
+
+        </script>
+</body>
+</html>

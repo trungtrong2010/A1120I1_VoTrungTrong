@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <p id="result"></p>
+<script>
+    let arr=[];
+    let list= parseInt(prompt('Nhập số phần tử có trong mảng (1-50):'));
+    while (list>50 || list<=0 || list%1!==0){
+        list=parseInt(prompt('Sai! Yêu cầu nhập lại số phần tử có trong mảng (1-50):'))
+    }
+    let sum=0;
+    let stt=0;
+    let k=parseInt(prompt('k='));
+    while (k<0 || k%1!==0){
+        k=parseInt(prompt('Sai, yêu cầu nhập lại k>=0'))
+    }
+
+    while (k<0){
+        k=parseInt(prompt(k+'<0 Sai! Yêu cầu nhập lại k='))
+    }
+    for (i=0;i<list;i++){
+        arr[i]=parseInt(prompt('arr['+i+']='));
+    }
+    for (j=0;j<list;j++){
+        for (let m=j+1;m<list;m++){
+            sum=arr[j]+arr[m];
+            if (sum % k === 0){
+                document.writeln('(' + arr[j] + ',' + arr[m] + ')' + '<br>');
+                stt+=1;
+            }
+        }
+    }
+    document.getElementById('result').innerHTML= 'Số lần:' +  stt;
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onoff lamp</title>
+</head>
+<body>
+        <img id="img" src="off.jpg">
+        <button onclick="onoff_lamp()">on/off</button>
+        <h3 id="on_off"></h3>
+
+        <script>
+            class Button{
+                constructor(status) {
+                    this.status=status;
+                }
+                tunrOn_off(){
+                    this.status=!this.status;
+                }
+            }
+            class Lamp{
+                constructor(button) {
+                    this.button=button;
+                }
+                switch(){
+                    if (this.button.status===true){
+                        document.getElementById('img').src="on.jpg";
+                    }
+                }
+            }
+            let button= new Button(true);
+            let lamp= new Lamp(button);
+            function onoff_lamp() {
+
+            }
+        </script>
+
+</body>
+</html>

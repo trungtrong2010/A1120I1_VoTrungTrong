@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai3 - 6</title>
+</head>
+<body>
+        <script>
+            let a= parseInt(prompt('rộng:'));
+            let b= parseInt(prompt('dài:'));
+            for (x=1;x<=a;x++){
+                if (x===1 || x===a) {
+                    for (let y =b ; y >= 0; y--) {
+                        document.writeln('*');
+                    }
+                }else {
+                    for (y=b;y>=0;y--){
+                        if (y===b || y===0){
+                            document.writeln('*')
+                        }else {
+                            document.writeln('&nbsp&nbsp')
+                        }
+                    }
+                }
+                document.writeln('<br>');
+            }
+        </script>
+</body>
+</html>

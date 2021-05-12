@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 5</title>
+</head>
+<body>
+
+        <table>
+            <tr>
+                <td><button id="add">Add New Customer</a></button> </td>
+                <td><button id="dis">Display Information Customer</button> </td>
+                <td><button id="edit">Edit Information Customer</button> </td>
+                <td><button id="delete">Delete Customer</button> </td>
+                <td><button id="exit">Exit</button> </td>
+            </tr>
+        </table>
+
+        <div id="result"></div>
+
+</table>
+        <script>
+            let arrCustomer=[];
+            let arrCustomers=[];
+            //add
+            document.getElementById('add').addEventListener('click', convertAdd);
+            function convertAdd() {
+                let table="<table>\n" +
+                    "    <tr> <td> <input placeholder=\"Họ và tên\" id=\"name\"> </td> </tr>\n" +
+                    "    <tr> <td> <input placeholder=\"Số CMND\" id=\"cmnd\"> </td> </tr>\n" +
+                    "    <tr> <td> <input placeholder=\"Địa chỉ\" id=\"from\"> </td> </tr>\n" +
+                    "    <tr> <td> <input placeholder=\"Tuổi\" id=\"hpbd\"> </td> </tr>\n" +
+                    "    <tr><td> <button id=\"addCustomer\">Add</button> </td></tr>\n" +
+                    "</table>";
+                document.getElementById('result').innerHTML=table;
+                document.getElementById('addCustomer').addEventListener('click', convertAddCustomer);
+                function convertAddCustomer() {
+                    let name = document.getElementById('name').value;
+                    let cmnd = document.getElementById('cmnd').value;
+                    let from = document.getElementById('from').value;
+                    let hpbd = document.getElementById('hpbd').value;
+                    arrCustomer.push(name);
+                    arrCustomer.push(cmnd);
+                    arrCustomer.push(from);
+                    arrCustomer.push(hpbd);
+                    arrCustomers.push(arrCustomer);
+                    document.getElementById('result').innerText=" "
+                }
+            }
+
+            //display
+            document.getElementById('dis').addEventListener('click', convertDis);
+            function convertDis() {
+                for (let i=0;i<arrCustomers.length;i++) {
+                    document.getElementById('result').innerHTML = arrCustomers[i];
+                }
+            }
+
+            //delete
+            document.getElementById('delete').addEventListener('click',convertDelete);
+            function convertDelete() {
+                let tableForm = "<table>\n" +
+                    "    <tr>\n" +
+                    "        <td><input placeholder=\"Enter Name\" id=\"deleteName\"></td>\n" +
+                    "        <td><button id=\"resultDelete\">Delete Customer</button> </td>\n" +
+                    "    </tr>\n</table>" +
+                    "    <div id=\"resultDeleteCustomer\"></div>\n"
+                    ;
+                document.getElementById('result').innerHTML = tableForm;
+                document.getElementById('resultDelete').addEventListener('click', convertResultDelete);
+                function convertResultDelete() {
+                    let deteleName = document.getElementById('deleteName').value;
+                    let delTable = "<table>\n" +
+                        "    <tr>\n" +
+                        "        <td>Stt</td>\n" +
+                        "        <td>Name</td>\n" +
+                        "        <td>CMND</td>\n" +
+                        "        <td>Đại chỉ</td>\n" +
+                        "        <td>Tuổi</td>\n" +
+                        "    </tr>";
+                    for (let i = 0; i < arrCustomers.length; i++) {
+                        if (deteleName === arrCustomers[i][0]) {
+                            delTable += "<tr>";
+                            delTable += "<td>" + i+ "</td>";
+                            for (let j = 0; j < arrCustomers[i].length; j++) {
+                                delTable += "<td>" + arrCustomers[i][j] + "</td>";
+                            }
+                            delTable += "</tr>"
+                        }
+                    }
+                    delTable += "</table>";
+                    document.getElementById('resultDeleteCustomer').innerHTML=delTable;
+                }
+            }
+
+            // exit
+            document.getElementById('exit').addEventListener('click', convertExit);
+            function convertExit() {
+                document.getElementById('result').innerHTML=" "
+            }
+
+        </script>
+</body>
+</html>

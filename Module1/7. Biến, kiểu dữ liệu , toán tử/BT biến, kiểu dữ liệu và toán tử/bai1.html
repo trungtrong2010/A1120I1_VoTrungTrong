@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let vatly;
+    let hoa;
+    let sinhhoc;
+
+    vatly= prompt("Nhập điểm môn Vật lý");
+    hoa= prompt("Nhập điểm môn Hóa");
+    sinhhoc= prompt("Nhập điểm môn Sinh học");
+
+    let diemvatly= parseInt(vatly);
+    let diemhoa= parseInt(hoa);
+    let diemsinhhoc= parseInt(sinhhoc);
+
+    let tongdiem= diemhoa + diemsinhhoc + diemvatly;
+    let diemtb= tongdiem/3;
+
+    document.write('Tổng điểm 3 môn là:' + tongdiem);
+    document.write('</br>');
+    document.write('Điểm trung bình 3 môn là:' + diemtb);
+
+</script>
+</body>
+</html>

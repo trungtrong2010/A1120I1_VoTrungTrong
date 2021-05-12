@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<script>
+    let number=parseInt(prompt('Enter the number "SỐ HOÀN HẢO" to find:'));
+    let count = 0;
+    for (let i = 1; count < number; i++) {
+        let add = 0;
+        for (let j = 1; j <=i/2; j++) {
+            if (i % j === 0) {
+                add += j;
+            }
+        }
+        if (add === i) {
+            count++;
+            document.write(i+'<br>')
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng vui Do You Love Me</title>
+</head>
+<body onload="init()">
+<h1>DO YOU LOVE ME</h1>
+<button onclick="yes()">Yes</button>
+<button onmouseover="no()" id="offlove" style="position: relative; top: 0;left: 0">No</button>
+
+<script>
+    var evol = document.getElementById('offlove');
+
+    function yes() {
+        alert('<3')
+    }
+
+    function init() {
+        evol.style.position = 'relative';
+        evol.style.left = '0';
+        evol.style.top = '0';
+    }
+
+    function no() {
+        let abc1 = Math.random() * 100;
+        let abc2 = Math.random() * 300;
+        evol.style.left = parseInt(evol.style.left) + abc1 + 'px';
+        evol.style.top = parseInt(evol.style.left) - abc2 + 'px';
+    }
+
+    window.onload = init;
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai2</title>
+</head>
+<body>
+        <script>
+            function number(points){
+                if (points<50){
+                    document.write('Học sinh bị trượt vì '+points+' điểm < 50 điểm chỉ tiêu');
+                }else {
+                    if (points%5 >= 3){
+                        points+= 5-points%5;
+                    }
+                    alert('Số điểm của học sinh là: '+points+' điểm');
+                }
+            }
+            points=parseInt(prompt('Điểm số của học sinh:'));
+            while (points<0 || points>100 || points%1 !== 0){
+                points=parseInt(prompt('Sai! Yêu cầu nhập lại điểm (0-100): '));
+            }
+            number(points);
+        </script>
+</body>
+</html>

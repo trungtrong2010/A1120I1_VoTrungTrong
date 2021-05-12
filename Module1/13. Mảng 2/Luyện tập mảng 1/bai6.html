@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai6</title>
+</head>
+<body>
+        <script>
+            let arr=[];
+            let list=parseInt(prompt('so phan tu trong mang'));
+            let v=parseInt(prompt('V='));
+            let yn= false;
+            for (let i=0;i<list;i++){
+                arr[i]=parseInt(prompt('nhap gia tri trong mang'));
+                if (v===arr[i]){
+                   yn= true;
+                   break;
+                }
+            }
+            if (yn){
+                document.writeln('đúng')
+            }else {
+                document.writeln('sai')
+            }
+
+        </script>
+</body>
+</html>

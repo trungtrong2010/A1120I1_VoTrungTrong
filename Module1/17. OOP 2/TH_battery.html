@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BATTERY</title>
+</head>
+<body>
+            <script>
+                class Battery{
+                    constructor(energy) {
+                        this.energy=energy;
+                    }
+                    setEnergy(energy){
+                        this.energy = energy
+                    }
+                    getEnergy(){
+                        return this.energy;
+                    }
+                    decreaseEnergy(){
+                        if (this.energy > 0) {
+                            this.energy--;
+                        }else {
+                            alert('het pin');
+                        }
+                    }
+                }
+                class Flashlamp{
+                    constructor(status,battery) {
+                        this.status=status;
+                        this.battery=battery;
+                    }
+                    setBattery(battery){
+                        this.battery=battery;
+                    }
+                    getBatteryInfo(){
+                        return this.battery;
+                    }
+                    linght(){
+                        if (this.status){
+                            this.battery.decreaseEnergy();
+                        }else {
+                            alert("BAT DEN");
+                        }
+                    }
+                    turnOn(){
+                        this.status= true;
+                    }
+                    turnOff(){
+                        this.status= false;
+                    }
+                }
+
+                let flashLamp= new Flashlamp(true,100);
+                if (flashLamp.status){
+                    alert('Đèn đang bật');
+                }else {
+                    alert('Dèn đang tắt');
+                }
+                for (let i=0;i<10;i++){
+                    flashLamp.linght();
+                }
+                alert("Pin hieejn tai: " + flashLamp.getBatteryInfo().getEnergy())
+            </script>
+</body>
+</html>

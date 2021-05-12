@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+        <input type="number" id="value" placeholder="độ C">
+        <button onclick="result()">Result</button>
+        <p id="resultF"></p>
+        <p id="resultK"></p>
+        <script>
+            class Temperature{
+                constructor(doC) {
+                    this.doC=doC;
+                }
+                valueF(){
+                    return this.doC*1.8+32;
+                }
+                valueK(){
+                    return parseInt(this.doC)+273.15;
+                }
+            }
+            function result() {
+                let aC= document.getElementById('value').value;
+                if (aC < -273){
+                    aC= -273;
+                }
+                let ab= new Temperature(aC);
+                document.getElementById('resultF').innerHTML = 'Độ F=' + ab.valueF() ;
+                document.getElementById('resultK').innerHTML = 'Độ K=' + ab.valueK() ;
+            }
+        </script>
+</body>
+</html>

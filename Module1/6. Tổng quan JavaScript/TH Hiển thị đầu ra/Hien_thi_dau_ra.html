@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TH Hiển thị đầu ra</title>
+</head>
+<body>
+
+<button type="button" onclick="show1()">
+     bài 1
+</button>
+<script>
+    function show1(){
+        alert('Hello 1 ');
+    }
+</script>
+
+<hr>
+
+<div id="2110"></div>
+<button type="button" onclick="show2()">
+    bài 2
+</button>
+<script>
+    function show2() {
+        document.getElementById('2110').innerHTML='heeeelllooooo 2';
+
+    }
+</script>
+
+<hr>
+
+<button type="button" onclick="show3()">
+    bài 3
+</button>
+<script>
+    function show3() {
+        document.write('hello3');
+
+    }
+</script>
+
+<hr>
+
+<button type="button" onclick="show4()">
+    bài 4
+</button>
+<script>
+    function show4() {
+        console.log('hello 4');
+
+    }
+</script>
+
+
+</body>
+</html>

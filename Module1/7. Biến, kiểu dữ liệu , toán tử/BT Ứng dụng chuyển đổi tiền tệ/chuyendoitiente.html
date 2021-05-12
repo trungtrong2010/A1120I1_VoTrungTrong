@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" id="nhapsotien">
+        </td>
+        <td>
+            <select id="canChuyen">
+                <option value="vn">VN  &nbsp &nbsp &nbsp  </option>
+                <option value="usd">USD &nbsp &nbsp &nbsp </option>
+            </select>
+        </td>
+        <td>
+            <select  id="chuyenSang">
+                <option value="usd">USD  &nbsp &nbsp &nbsp  </option>
+                <option value="vn">VN   &nbsp  &nbsp &nbsp </option>
+            </select>
+        </td>
+        <td>
+            <button id="nutbam"  > &nbsp Convert&nbsp </button>
+
+        </td>
+    </tr>
+</table>
+<p>Result: </p><p id="kq"></p>
+<script>
+    document.getElementById('nutbam').addEventListener('click', convert);
+    function convert() {
+        let nhapsotien = document.getElementById('nhapsotien').value;
+        let canchuyen = document.getElementById('canChuyen').value;
+        let chuyensang = document.getElementById('chuyenSang').value;
+        let usd = 23000;
+        let kq;
+        if (canchuyen === 'vn') {
+            if (chuyensang === 'vn') {
+                kq = 'Vui lòng nhập lại'
+            } else if (chuyensang === 'usd') {
+                kq = parseInt(nhapsotien) / usd;
+            }
+        } else if (canchuyen === 'usd') {
+            if (chuyensang === 'usd') {
+                kq = 'Vui lòng nhập lại'
+            } else if (chuyensang === 'vn') {
+                kq = parseInt(nhapsotien) * usd;
+            }
+        }
+        document.getElementById('kq').innerHTML = kq;
+    }
+</script>
+
+
+
+</body>
+</html>
