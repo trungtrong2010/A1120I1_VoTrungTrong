@@ -1,0 +1,24 @@
+.menu{
+    /*over..hidden: ẩn nội dung dư thừa*/
+    overflow: hidden;
+    background-color:  grey;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.menu a{
+    float: left;
+    display: block;
+    color: #CDCDCD;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.content{
+    padding: 20px;
+    margin-top: 20px;
+}

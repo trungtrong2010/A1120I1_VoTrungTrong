@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .menu > div{
+            padding: 20px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-areas:
+                    'header header header header header header header header header header header header'
+                    'menuLeft menuLeft content content content content content content content content menuRight menuRight'
+                    'footer footer footer footer footer footer footer footer footer footer footer footer';
+        }
+
+        .item1 {
+            grid-area: header;
+            background-color: lightslategray;
+        }
+
+        .item2 {
+            grid-area: menuLeft;
+            background-color: #CDCDCD;
+        }
+
+        .item3 {
+            grid-area: content;
+            background-color: white;
+        }
+
+        .item4 {
+            grid-area: menuRight;
+            background-color: #CDCDCD;
+        }
+
+        .item5 {
+            grid-area: footer;
+            background-color: #0011;
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu">
+    <div class="item1"> header
+    </div>
+    <div class="item2">menuLeft</div>
+    <div class="item3">content</div>
+    <div class="item4">menuRight</div>
+    <div class="item5">footer</div>
+</div>
+</body>
+</html>
