@@ -25,7 +25,6 @@ create table sv(
     ngaySinh date,
     photo varchar(255)
 );
-
 create table thueSach(
 	id int primary key,
     maSach int,
