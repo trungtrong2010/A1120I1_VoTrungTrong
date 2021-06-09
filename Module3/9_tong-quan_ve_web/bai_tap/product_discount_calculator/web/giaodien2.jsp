@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Title</title>
@@ -46,7 +47,7 @@
         <input type="number" name="percent" placeholder="Tỷ lệ chiết khấu %"><br>
         <input type="submit" name="submit" value="Result">
     </form>
-    <h3>Description: ${description}</h3>
+    <h3>Mô tả sản phẩm: ${description}</h3>
     <h3>Price: ${price} $</h3>
     <h3>Percent: ${percent} %</h3>
     <h3>Result: ${result} $</h3>

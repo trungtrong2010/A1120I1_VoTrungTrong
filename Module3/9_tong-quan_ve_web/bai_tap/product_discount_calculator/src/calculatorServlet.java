@@ -7,10 +7,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 @WebServlet(name = "calculatorServlet", urlPatterns = "/calculatordiscount")
+
 public class calculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+//        response.setCharacterEncoding("UTF-8");
         String description = request.getParameter("description");
+        description += "Trọng";
         float price = Float.parseFloat(request.getParameter("price"));
         float percent = Float.parseFloat(request.getParameter("percent"));
         float result = price * percent / 100;
