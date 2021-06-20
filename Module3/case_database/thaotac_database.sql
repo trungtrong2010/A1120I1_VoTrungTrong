@@ -16,10 +16,10 @@ and diaChi = "Đà Nẵng" or diaChi = "Quảng Trị";
 -- theo loaikhachloaikhachsố lần đặt phòng của khách hàng. Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
 select khachhang.HoTen ,count(hopdong.idhopdong) as so_lan_dat_phong 
 from khachhang 
-inner join hopdong on khachhang.IDKhachHang = hopdong.IDHopDong
-inner join loaikhach on khachhang.IDLoaiKhach = loaikhach.IDLoaiKhach 
-where loaikhach.TenLoaiKhach = "Diamond"
-group by khachhang.IDKhachHang order by so_lan_dat_phong;
+inner join hopdong on khachhang.IdKhachHang = hopdong.IdHopDong
+inner join loaikhach on khachhang.IdLoaiKhach = loaikhach.IdLoaiKhach 
+where loaikhach.tenLoaiKhach = "Diamond"
+group by khachhang.idKhachHang order by so_lan_dat_phong;
 
 -- Cau 5
 

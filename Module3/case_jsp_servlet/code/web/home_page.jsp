@@ -11,6 +11,13 @@
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        @media (max-width: 600px) {
+            .display-item {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="header">
@@ -57,20 +64,22 @@
     </nav>
 </div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2"  style="background-color: #c9d0de;">
-            <p><a href="#">Item One</a> </p>
-            <p><a href="#">Item Tow</a> </p>
-            <p><a href="#">Item Three</a> </p>
+    <div class="row ">
+        <div class="col-sm-2 display-item left-container" style="background-color: #c9d0de;">
+            <p><a href="#">Item One</a></p>
+            <p><a href="#">Item Tow</a></p>
+            <p><a href="#">Item Three</a></p>
         </div>
-        <div class="col-sm-10">
-            <p style="text-align: center">Body</p>
+        <div class="col-sm-10 content">
+            <p style="text-align: center">
         </div>
     </div>
 </div>
 <div class="footer">
-    <footer class="bg-dark text-center text-white">
-        <p>Footer...</p>
+    <footer class="page-footer font-small blue footer fixed-bottom" style="background-color: #d1a49b">
+        <div class="footer-copyright text-center py-3">© Facebook:
+            <a href="https://facebook.com/trungtrong2020"> Võ Trung Trọng </a>
+        </div>
     </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

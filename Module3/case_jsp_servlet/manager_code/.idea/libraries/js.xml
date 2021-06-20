@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="jstl-1">
+  <library name="js">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../manager_code/web/lib/jstl-1.2" />
+      <root url="file://E:/Labary/js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
