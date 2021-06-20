@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = {"/user", ""})
@@ -122,9 +123,23 @@ public class UserServlet extends javax.servlet.http.HttpServlet {
             case "findCountry":
                 showFindCountryForm(request, response);
                 break;
+            case "sortName":
+                showListSortName(request, response);
+                break;
             default:
                 showUserList(request, response);
                 break;
+        }
+    }
+
+    private void showListSortName(HttpServletRequest request, HttpServletResponse response) {
+        List<User> listSortName = service.sortName();
+        request.setAttribute("listSortName", listSortName);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user/listSortName.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 

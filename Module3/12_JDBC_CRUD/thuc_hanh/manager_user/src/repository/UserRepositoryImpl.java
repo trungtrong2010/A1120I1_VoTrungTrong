@@ -17,6 +17,8 @@ public class UserRepositoryImpl implements UserRepository {
     public static final String UPDATE_USER_ID = "update users set name=?,email=?,country=? where id=?;";
     public static final String DELETE_USER_MYSQL = "DELETE FROM users WHERE id = ?;";
     public static final String SELECT_COUNTRY = "select * from users where country=?;";
+    public static final String SELECT = "select * from users order by name;";
+    public static final String SELECT_SORT_NAME = SELECT;
 
     @Override
     public List<User> findAll() {
@@ -173,5 +175,44 @@ public class UserRepositoryImpl implements UserRepository {
             }
         }
         return listCountry;
+    }
+
+    @Override
+    public List<User> sortName() {
+        List<User> listSortName = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_SORT_NAME);
+                resultSet = statement.executeQuery();
+
+                User user = null;
+                while (resultSet.next()) {
+                    int id = resultSet.getInt(1); //lay dc id
+                    String name = resultSet.getString("name");
+                    String email = resultSet.getString("email");
+                    String country = resultSet.getString("country");
+
+                    user = new User(id, name, email, country);
+
+                    listSortName.add(user);
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    resultSet.close();
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                DBConnection.close();
+
+            }
+        }
+        return listSortName;
     }
 }

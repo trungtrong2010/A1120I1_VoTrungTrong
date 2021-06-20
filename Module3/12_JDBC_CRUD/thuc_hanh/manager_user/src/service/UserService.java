@@ -16,4 +16,6 @@ public interface UserService {
     void delete(int id);
 
     List<User> findByCountry(String country);
+
+    List<User> sortName();
 }

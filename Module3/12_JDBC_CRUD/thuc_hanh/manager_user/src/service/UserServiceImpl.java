@@ -44,4 +44,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findByCountry(String country) {
         return repository.findByCountry(country);
     }
+
+    @Override
+    public List<User> sortName() {
+        return repository.sortName();
+    }
 }
