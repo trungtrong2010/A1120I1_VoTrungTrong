@@ -7,6 +7,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="manager_code" />
           <element id="library" level="project" name="js" />
+          <element id="library" level="project" name="jstl-1" />
+          <element id="library" level="project" name="mysql-connector-java-8.01" />
+          <element id="library" level="project" name="mysql-connector-java-8.0" />
         </element>
       </element>
     </root>

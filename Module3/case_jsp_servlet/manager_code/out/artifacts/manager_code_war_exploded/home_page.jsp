@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Home Page</title>
@@ -41,7 +42,21 @@
                                 <a class="nav-link" href="#">Employee</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Customer</a>
+                                <a class="nav-link" href="customer?action=list">Customer</a>
+<%--                                <div class="btn-group">--%>
+<%--                                <button class="btn dropdown-toggle"--%>
+<%--                                        type="button" style="color: #9c9c9c"--%>
+<%--                                        id="dropdownMenuButton" data-toggle="dropdown">--%>
+<%--                                    Customer--%>
+<%--                                </button>--%>
+<%--                                <div class="dropdown-menu">--%>
+<%--                                    <a class="dropdown-item" href="/customer?action=listCustomerType">List Customer Type</a>--%>
+<%--                                    <div class="dropdown-divider"></div>--%>
+<%--                                    <a class="dropdown-item" href="#">xxxx</a>--%>
+<%--                                    <div class="dropdown-divider"></div>--%>
+<%--                                    <a class="dropdown-item" href="#">xxxx</a>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Service</a>
@@ -79,5 +94,17 @@
         </footer>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>
