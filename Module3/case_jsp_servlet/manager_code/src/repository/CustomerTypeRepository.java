@@ -7,5 +7,5 @@ import java.util.List;
 public interface CustomerTypeRepository {
     List<CustomerType> selectAllCustomerType();
 
-    CustomerTypeRepository findCustomerTypeById();
+    CustomerType findCustomerTypeById(int id);
 }

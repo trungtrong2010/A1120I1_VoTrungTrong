@@ -42,7 +42,7 @@
                                 <a class="nav-link" href="#">Employee</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="customer?action=list">Customer</a>
+                                <a class="nav-link" href="/customer">Customer</a>
 <%--                                <div class="btn-group">--%>
 <%--                                <button class="btn dropdown-toggle"--%>
 <%--                                        type="button" style="color: #9c9c9c"--%>
