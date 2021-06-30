@@ -1,11 +1,11 @@
 package controller;
 
-import model.Customer;
-import model.CustomerType;
-import service.CustomerService;
-import service.CustomerServiceImpl;
-import service.CustomerTypeService;
-import service.CustomerTypeServiceImpl;
+import model.customer.Customer;
+import model.customer.CustomerType;
+import service.customer.CustomerService;
+import service.customer.CustomerServiceImpl;
+import service.customer.CustomerTypeService;
+import service.customer.CustomerTypeServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")

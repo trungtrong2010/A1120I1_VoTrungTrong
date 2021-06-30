@@ -113,6 +113,3 @@ create table contract_detail(
     quantity int
 );
 
-
-
-
