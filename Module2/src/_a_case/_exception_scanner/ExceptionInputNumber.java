@@ -25,7 +25,7 @@ public class ExceptionInputNumber {
     }
 
 //    public static  boolean
-
+//
 //    public static long exceptionIpLong() {
 //        long temp = 0;
 //        boolean check = false;
