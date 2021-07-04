@@ -15,6 +15,13 @@ public interface ServiceService {
 
     void remove(int id);
 
-    List<Service> getListCustomerByName(String name);
+    List<Service> getListServiceByName(String name);
 
+    boolean isFullName(String name);
+
+    boolean isNumberPositive(int number);
+
+    boolean isDoublePositive(double number);
+
+    boolean isNullPointerException(String string);
 }

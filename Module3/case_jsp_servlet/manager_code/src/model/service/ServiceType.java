@@ -9,6 +9,10 @@ public class ServiceType {
         this.name = name;
     }
 
+    public ServiceType() {
+
+    }
+
     public int getId() {
         return id;
     }

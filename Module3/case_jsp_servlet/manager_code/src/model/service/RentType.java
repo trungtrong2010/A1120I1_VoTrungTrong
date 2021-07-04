@@ -3,12 +3,14 @@ package model.service;
 public class RentType {
     private int id;
     private String name;
-    private double cost;
 
-    public RentType(int id, String name, double cost) {
+    public RentType(int id, String name) {
         this.id = id;
         this.name = name;
-        this.cost = cost;
+    }
+
+    public RentType() {
+
     }
 
     public int getId() {
@@ -25,13 +27,5 @@ public class RentType {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
     }
 }

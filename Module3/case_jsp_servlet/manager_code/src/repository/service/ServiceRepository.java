@@ -15,6 +15,6 @@ public interface ServiceRepository {
 
     void remove(int id);
 
-    List<Service> getListCustomerByName(String name);
+    List<Service> getListServiceByName(String name);
 
 }

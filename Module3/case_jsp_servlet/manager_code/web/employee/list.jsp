@@ -53,7 +53,7 @@
 </form>
 <div class="content_table">
     <h3 style="color: darkred; padding-bottom: 20px">List employee</h3>
-    <table id="tableCustomer" class="table table-hover table-bordered" style="width: 100%">
+    <table id="tableEmployee" class="table table-hover table-bordered" style="width: 100%">
         <thead>
         <tr>
             <th>ID</th>
@@ -260,7 +260,7 @@
 <script>
     // show list customer
     $(document).ready(function () {
-        $('#tableCustomer').dataTable({
+        $('#tableEmployee').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             'pageLength': 3

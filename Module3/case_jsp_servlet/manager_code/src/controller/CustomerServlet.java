@@ -36,7 +36,7 @@ public class CustomerServlet extends HttpServlet {
                 updateCustomer(request, response);
                 break;
             case "findCustomerById":
-                findCustomerById(request, response);
+                findCustomerByName(request, response);
                 break;
             default:
                 showListCustomer(request, response);
@@ -44,7 +44,7 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void findCustomerById(HttpServletRequest request, HttpServletResponse response) {
+    private void findCustomerByName(HttpServletRequest request, HttpServletResponse response) {
 //        int id = 0;
 //        try {
 //            id = Integer.parseInt(request.getParameter("id"));

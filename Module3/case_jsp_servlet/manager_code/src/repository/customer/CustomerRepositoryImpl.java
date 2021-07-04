@@ -13,7 +13,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             "on customer.customer_type_id = customer_type.customer_type_id;";
     public static final String UPDATE_CUSTOMER_BY_ID = "UPDATE customer SET customer_type_id = ?, customer_name = ?, customer_birthday = ?, customer_gender = ?, customer_id_card = ?, customer_phone = ?, customer_email= ?, customer_address = ? WHERE customer_id = ?;";
     public static final String DELETE_CUSTOMER_BY_ID = "DELETE FROM customer WHERE customer_id = ?;";
-    public static final String SELECT_CUSTOMER_BY_NAME = "select customer.*, customer_type.customer_type_name from customer left join customer_type on customer.customer_type_id = customer_type.customer_type_id where customer_name = ?;";
+    public static final String SELECT_CUSTOMER_BY_NAME = "select customer.*, customer_type.customer_type_name from customer left join customer_type on customer.customer_type_id = customer_type.customer_type_id where customer_name like concat('%',?,'%');";
 
     @Override
     public List<Customer> selectAllCustomer() {
@@ -160,6 +160,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 while (resultSet.next()) {
                     int id = resultSet.getInt(1);
                     int id_type = resultSet.getInt(2);
+                    String nameCustomer = resultSet.getString(3);
                     String birthday = resultSet.getString(4);
                     int gender = resultSet.getInt(5);
                     String idCard = resultSet.getString(6);
@@ -167,7 +168,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                     String email = resultSet.getString(8);
                     String address = resultSet.getString(9);
                     String name_type = resultSet.getString(10);
-                    customer = new Customer(id, name, birthday, gender, idCard, phone, email, address, new CustomerType(id_type, name_type));
+                    customer = new Customer(id, nameCustomer, birthday, gender, idCard, phone, email, address, new CustomerType(id_type, name_type));
                     list.add(customer);
                 }
             } catch (SQLException e) {

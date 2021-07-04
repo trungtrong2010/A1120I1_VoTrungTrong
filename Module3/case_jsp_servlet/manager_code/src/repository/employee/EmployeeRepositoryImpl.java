@@ -30,7 +30,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             "left join education_degree on employee.education_degree_id = education_degree.education_degree_id\n" +
             "left join divition on employee.divition_id = divition.divition_id\n" +
             "left join user on employee.username = user.username\n" +
-            "where employee_name =?;";
+            "where employee_name like concat('%',?,'%');";
     @Override
     public List<Employee> selectAllEmployee() {
         List<Employee> list = new ArrayList<>();
@@ -179,7 +179,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             try {
                 statement = connection.prepareStatement(SELECT_EMPLOYEE_BY_NAME);
                 statement.setString(1, name);
-                statement.executeQuery();
                 resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     int id = resultSet.getInt(1);

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ServiceTypeService {
     List<ServiceType> selectAllServiceType();
+
+    ServiceType getServiceTypeById(int id);
 }

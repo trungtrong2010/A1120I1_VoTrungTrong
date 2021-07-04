@@ -27,6 +27,10 @@ public class Service {
         this.number_of_floors = number_of_floors;
     }
 
+    public Service() {
+
+    }
+
     public int getId() {
         return id;
     }
