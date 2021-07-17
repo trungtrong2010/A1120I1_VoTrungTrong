@@ -192,7 +192,6 @@ public class ServiceServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
     private void showListService(HttpServletRequest request, HttpServletResponse response) {
         List<Service> list = serviceService.selectAllService();
         request.setAttribute("list", list);
