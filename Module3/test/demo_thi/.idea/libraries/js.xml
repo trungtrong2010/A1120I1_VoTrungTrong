@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="js">
+    <ANNOTATIONS>
+      <root url="file://E:/Labary/js" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://E:/Labary/js" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://E:/Labary/js" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://E:/Labary/js" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://E:/Labary/js" />
+    </SOURCES>
+    <jarDirectory url="file://E:/Labary/js" recursive="false" />
+    <jarDirectory url="file://E:/Labary/js" recursive="false" type="SOURCES" />
+  </library>
+</component>
