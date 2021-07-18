@@ -13,8 +13,9 @@
 </head>
 <body>
 <h3>Sandwich</h3>
-    <c:forEach items="${condimentList}" var="condiment">
-        <p>${condiment}</p>
-    </c:forEach>
+<%--    <c:forEach items="${condimentString}" var="condiment">--%>
+<%--        <p>${condiment}</p>--%>
+<%--    </c:forEach>--%>
+<p>${condimentString}</p>
 </body>
 </html>

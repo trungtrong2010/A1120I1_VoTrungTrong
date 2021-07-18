@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -18,10 +19,9 @@ public class HomeController {
     }
 
     @PostMapping("/choice")
-    private String save(@RequestParam("condiment") String condiment, Model model) {
-        List<String> condimentList = new ArrayList<>();
-        condimentList.add(condiment);
-        model.addAttribute("condimentList", condimentList);
+    private String save(@RequestParam("condiment") String [] condiment, Model model) {
+        String condimentString = Arrays.toString(condiment);
+        model.addAttribute("condimentString", condimentString);
         return "showChoice";
     }
 }
