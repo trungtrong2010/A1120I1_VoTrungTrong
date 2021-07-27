@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail student</title>
+</head>
+<body>
+<h2>Detail student</h2>
+<p><a href="/student/list">Back to student list</a></p>
+
+<form th:object="${student}">
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td><input th:field="*{id}" disabled></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input th:field="*{name}" disabled></td>
+        </tr>
+        <tr>
+            <td>Date of birthday:</td>
+            <td><input th:field="*{dateOfBirthday}" disabled></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+<!--            <td><input th:field="*{gender}" readonly></td>-->
+                    <td th:switch="*{gender}">
+                        <input th:case='0' value="Female" disabled>
+                        <input th:case="1" value="Male" disabled>
+                        <input th:case="*" value="LGBT" disabled>
+                    </td>
+        </tr>
+        <tr>
+            <td>Class:</td>
+            <td><input th:field="*{class_student}" disabled></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

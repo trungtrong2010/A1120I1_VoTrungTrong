@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List student</title>
+</head>
+<body>
+<h2>List student</h2>
+<p><a href="/student/create">Create student</a></p>
+<form method="post" action="/student/search">
+    <input type="text" name="nameSearch" th:value="${nameSearch}">
+    <button>Seach</button>
+</form>
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Date of birthday</th>
+        <th>Gender</th>
+        <th>Class</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="listStudent,loop : ${list}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${listStudent.name}"></td>
+        <td th:text="${listStudent.dateOfBirthday}"></td>
+        <td th:switch="${listStudent.gender}">
+            <span th:case="0">Female</span>
+            <span th:case="1">Male</span>
+            <span th:case="*">LGBT</span>
+        </td>
+        <td th:text="${listStudent.class_student}"></td>
+        <td><a th:href="@{/student/detail(id=${listStudent.id})}">Detail</a></td>
+        <td><a th:href="@{/student/{id}/edit(id=${listStudent.id})}">Edit</a></td>
+        <td><a th:href="@{/student/{id}/delete(id=${listStudent.id})}">Delete</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
+</html>
