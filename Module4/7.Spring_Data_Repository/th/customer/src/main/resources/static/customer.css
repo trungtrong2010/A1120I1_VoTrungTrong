@@ -1,0 +1,12 @@
+h2, p, form {
+    text-align: center;
+}
+
+table {
+    margin-left: 500px;
+    margin-top: 20px;
+}
+
+h2 {
+    color: red;
+}

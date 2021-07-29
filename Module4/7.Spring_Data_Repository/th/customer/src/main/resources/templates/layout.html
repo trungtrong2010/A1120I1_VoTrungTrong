@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:fragment="labHeader">
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <style>
+        h2, p {
+            text-align: center;
+        }
+
+        table {
+            margin-left: 40%;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="header">
+    <p>-----------------------</p>
+    <p>----------Header-------</p>
+</div>
+
+<div th:fragment="footer">
+    <p>-----------------------</p>
+    <p>----------Footer-------</p>
+</div>
+</body>
+</html>

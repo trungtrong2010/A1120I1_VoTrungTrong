@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:insert="layout::labHeader">
+    <meta charset="UTF-8">
+    <title>Edit customer</title>
+</head>
+<body>
+<div th:insert="layout :: header"></div>
+
+<h2>Edit customer</h2>
+<p><a href="/customer/list">Back to customer list</a></p>
+
+<form action="/customer/update" method="post">
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td><input th:field="${customer.id}" readonly ></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input th:field="${customer.name}"></td>
+        </tr>
+        <tr>
+            <td>Date of birthday:</td>
+            <td><input th:field="${customer.dateOfBirthday}"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td th:each="gender,loop : ${listGender}">
+                <input type="radio" th:value="${loop.index}" th:field="${customer.gender}">
+                <label th:text="${gender}"></label>
+            </td>
+        </tr>
+        <tr>
+            <td>Province:</td>
+            <td>
+                <select th:field="${customer.province}" >
+                    <option th:each="province : ${listProvince}" th:value="${province.id}" th:text="${province.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button>Update</button></td>
+        </tr>
+    </table>
+</form>
+
+<div th:insert="layout :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:insert="layout::labHeader">
+    <meta charset="UTF-8">
+    <title>Create customer</title>
+</head>
+<body>
+
+<div th:insert="layout::header"></div>
+
+<h2>Create student</h2>
+<p><a href="/customer/list">Back to student list</a></p>
+<form method="post" action="/customer/save" th:object="${customer}">
+    <table>
+        <tr>
+            <td>Name*:</td>
+            <td><input type="text" th:field="*{name}" required></td>
+        </tr>
+        <tr>
+            <td>Date of birthday*:</td>
+            <td><input type="date" th:field="*{dateOfBirthday}" required="required"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <!--            <td>-->
+            <!--                <select th:field="*{gender}">-->
+            <!--                    <option th:value="0" th:text="Female"></option>-->
+            <!--                    <option th:value="1" th:text="Male"></option>-->
+            <!--                    <option th:value="2" th:text="LGBT"></option>-->
+            <!--                </select>-->
+            <!--        </td>-->
+            <td th:each="gender,loop : ${listGender}">
+                <input type="radio" th:value="${loop.index}" th:field="${customer.gender}">
+                <label th:text="${gender}"></label>
+            </td>
+        </tr>
+        <tr>
+            <td>Province:</td>
+            <td>
+                <select th:field="*{province}">
+                    <option th:each="province : ${listProvince}" th:text="${province.name}"
+                            th:value="${province.id}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button>Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div th:insert="layout::footer"></div>
+
+</body>
+</html>
+</html>
