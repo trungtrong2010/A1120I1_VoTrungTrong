@@ -66,7 +66,7 @@ public class StudentController {
     }
 
     @PostMapping("/search")
-    private String seach(@RequestParam String nameSearch, Model model) {
+    private String seach(@RequestParam(value = "nameSearch",defaultValue = "") String nameSearch, Model model) {
         model.addAttribute("nameSearch",nameSearch);
         model.addAttribute("list", studentService.findByName(nameSearch));
         return "/list";

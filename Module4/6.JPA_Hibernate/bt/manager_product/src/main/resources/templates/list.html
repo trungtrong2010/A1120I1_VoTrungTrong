@@ -1,10 +1,47 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>List product</title>
 </head>
 <body>
-$END$
+
+<h1>List product</h1>
+<p><a href="/product/create">Create product</a></p>
+
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date of birthday</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Type</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="listProduct,loop : ${list}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${listProduct.id}"></td>
+        <td th:text="${listProduct.name}"></td>
+        <td th:text="${listProduct.dateOfBirthday}"></td>
+        <td th:switch="${listProduct.gender}">
+            <span th:case="0">Female</span>
+            <span th:case="1">Male</span>
+            <span th:case="2">LGBT</span>
+            <span th:case="*">None</span>
+        </td>
+        <td th:text="${listProduct.address}"></td>
+        <td th:text="${listProduct.typeProduct.nameType}"></td>
+        <td><a th:href="@{/product/detail(id=${listProduct.id})}">Detail</a></td>
+        <td>Edit</td>
+        <td><a th:href="@{/product/{id}/delete(id=${listProduct.id})}">Delete</a></td>
+    </tr>
+</table>
+
 </body>
+</html>
 </html>

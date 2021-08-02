@@ -1,10 +1,55 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Create product</title>
 </head>
 <body>
-$END$
+<h2>Create product</h2>
+<p><a href="/product/list">Back to product list</a></p>
+
+<form method="post" action="/product/save" th:object="${product}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Date of birthday:</td>
+            <td><input type="date" th:field="*{dateOfBirthday}"></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <select th:field="*{gender}">
+                    <option th:value="0" th:text="Female"></option>
+                    <option th:value="1" th:text="Male"></option>
+                    <option th:value="2" th:text="LGBT"></option>
+                    <option th:value="3">xx</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" th:field="*{address}"></td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td>
+                <select th:field="*{typeProduct}">
+                    <option th:each="type : ${listTypeProduct}" th:text="${type.nameType}"
+                            th:value="${type.id}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button>Save</button></td>
+        </tr>
+    </table>
+</form>
+
 </body>
+</html>
 </html>
