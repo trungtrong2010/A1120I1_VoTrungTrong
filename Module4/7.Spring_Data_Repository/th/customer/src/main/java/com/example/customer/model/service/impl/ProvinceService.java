@@ -6,6 +6,8 @@ import com.example.customer.model.service.IProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProvinceService implements IProvinceService {
 
@@ -13,7 +15,7 @@ public class ProvinceService implements IProvinceService {
     private ProvinceRepository provinceRepository;
 
     @Override
-    public Iterable<Province> findAll() {
+    public List<Province> findAll() {
         return provinceRepository.findAll();
     }
 

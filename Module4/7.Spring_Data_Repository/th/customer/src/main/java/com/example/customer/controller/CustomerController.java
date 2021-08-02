@@ -22,14 +22,36 @@ public class CustomerController {
     @Autowired
     private IProvinceService provinceService;
 
-    private String[] arrGender = new String[]{"Female","Male","LGBT"};
+    private String[] arrGender = new String[]{"Female", "Male", "LGBT"};
 
     @GetMapping("/list")
-    private String showList(@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+    private String showList(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "idProvince", defaultValue = "0") int idProvince,
+                            @RequestParam(value = "nameSearch", defaultValue = "") String nameSearch, Model model) {
         Sort sort = Sort.by("name").and(Sort.by("gender")).descending();
-        model.addAttribute("list", customerService.findAll(PageRequest.of(page - 1, 20, sort)));
+        if (nameSearch.equals("")) {
+            if (idProvince == 0) {
+                model.addAttribute("list", customerService.findAll(PageRequest.of(page - 1, 1, sort)));
+            } else {
+                model.addAttribute("provinces", provinceService.findAll());
+                model.addAttribute("idProvince", idProvince);
+                model.addAttribute("list", customerService.findAllByProvinceId(idProvince, PageRequest.of(page - 1, 10, sort)));
+            }
+        } else {
+            model.addAttribute("nameSearch", nameSearch);
+//            model.addAttribute("idProvince", idProvince);
+//            model.addAttribute("list", customerService.findAllByProvinceIdAndNameContaining(idProvince, nameSearch, PageRequest.of(page - 1, 3, sort)));
+            model.addAttribute("list", customerService.findByNameContaining(nameSearch, PageRequest.of(page - 1, 3, sort)));
+        }
         return "list";
     }
+
+//    @GetMapping("/search")
+//    private String search(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "nameSearch", defaultValue = "") String nameSearch, Model model) {
+//        Sort sort = Sort.by("name").and(Sort.by("id")).ascending();
+//        model.addAttribute("nameSearch", nameSearch);
+//        model.addAttribute("list", customerService.findByNameContaining(nameSearch, PageRequest.of(page - 1, 2, sort)));
+//        return "list";
+//    }
 
     @GetMapping("/create")
     private String showFormCreate(Model model) {
@@ -45,14 +67,6 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
-    @GetMapping("/search")
-    private String search(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "nameSearch", defaultValue = "") String nameSearch, Model model) {
-        Sort sort = Sort.by("name").and(Sort.by("id")).ascending();
-        model.addAttribute("nameSearch", nameSearch);
-        model.addAttribute("list", customerService.findByNameContaining(nameSearch, PageRequest.of(page - 1, 2, sort)));
-        return "/list";
-    }
-
     @GetMapping("/detail")
     private String detail(@RequestParam int id, Model model) {
         model.addAttribute("listGender", arrGender);
@@ -62,7 +76,7 @@ public class CustomerController {
 
     @GetMapping("/{id}/edit")
     private String showFormEdit(@PathVariable int id, Model model) {
-        model.addAttribute("listGender",arrGender);
+        model.addAttribute("listGender", arrGender);
         model.addAttribute("listProvince", provinceService.findAll());
         model.addAttribute("customer", customerService.findById(id));
         return "edit";
@@ -76,7 +90,7 @@ public class CustomerController {
 
     @GetMapping("/{id}/delete")
     private String showFormDelete(@PathVariable int id, Model model) {
-        model.addAttribute("listGender",arrGender);
+        model.addAttribute("listGender", arrGender);
         model.addAttribute("customer", customerService.findById(id));
         return "delete";
     }

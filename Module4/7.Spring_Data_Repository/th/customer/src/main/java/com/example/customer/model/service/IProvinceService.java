@@ -3,8 +3,10 @@ package com.example.customer.model.service;
 import com.example.customer.model.entity.Province;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
+
 public interface IProvinceService {
-    Iterable<Province> findAll();
+    List<Province> findAll();
 
     Province findById(int id);
 

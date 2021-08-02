@@ -16,4 +16,8 @@ public interface ICustomerService {
     void remove(Customer customer);
 
     Page<Customer> findByNameContaining(String name,Pageable pageable);
+
+    Page<Customer> findAllByProvinceId(int id, Pageable pageable);
+
+    Page<Customer> findAllByProvinceIdAndNameContaining(int id, String name, Pageable pageable);
 }

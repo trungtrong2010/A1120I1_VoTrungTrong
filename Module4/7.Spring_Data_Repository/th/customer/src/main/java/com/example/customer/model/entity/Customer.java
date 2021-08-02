@@ -1,20 +1,25 @@
 package com.example.customer.model.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @NotBlank(message = "Tên không được để trống")
     private String name;
+
     private int gender;
     @Column(name = "date_of_birthday", columnDefinition = "DATE")
     private String dateOfBirthday;
 
-    @ManyToOne
-    @JoinColumn(name = "id_province", referencedColumnName = "id")
+    @ManyToOne(targetEntity = Province.class)
+//    @JoinColumn(name = "id_province", referencedColumnName = "id")
     private Province province;
+
 
     public Customer() {
     }
