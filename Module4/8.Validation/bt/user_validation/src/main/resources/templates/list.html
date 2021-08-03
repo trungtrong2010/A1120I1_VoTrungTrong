@@ -1,10 +1,97 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head>
+<head th:insert="layout::labHeader">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>List User</title>
 </head>
 <body>
-$END$
+
+<div th:insert="layout :: navnar"></div>
+
+<h2>List User</h2>
+
+<p><a href="/user/create">Create User</a></p>
+
+<form method="get" action="/user/listUser" style="text-align: center; margin-bottom: 30px">
+
+    <input type="text" name="nameSearch" th:value="${nameSearch}" placeholder="Name want to search">
+
+    <select onchange="this.form.submit()" th:value="${idTypeUser}" name="idTypeUser">
+        <option value="">Type default</option>
+        <th:block th:each="type : ${typeUsers}">
+            <option th:if="${idTypeUser==type.id}" th:value="${type.id}" th:text="${type.name}" selected
+                    disabled></option>
+            <option th:if="${idTypeUser!=type.id}" th:value="${type.id}" th:text="${type.name}"
+                    th:href="@{/user/listUser(idTypeUser=${type.id}, nameSearch = ${nameSearch})}"></option>
+        </th:block>
+    </select>
+    <button>Search</button>
+</form>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>No</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Number phone</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Type</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="user,loop : ${users}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.phoneNumber}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.typeUser.name}"></td>
+        <td><a th:href="@{/user/{id}/detail(id=${user.id})}">Detail</a></td>
+        <td><a th:href="@{/user/{id}/edit(id=${user.id})}">Edit</a></td>
+        <td><a th:href="@{/user/{id}/delete(id=${user.id})}">Delete</a></td>
+    </tr>
+</table>
+
+<div style=" margin-left: 940px">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li th:if="${users.hasPrevious()}" class="page-item">
+                <a class="page-link" th:href="@{/user/listUser(page=${users.number},nameSearch=${nameSearch},
+                idTypeUser=${idTypeUser})}" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li th:if="${!users.hasPrevious()}" class="page-item disabled">
+                <a class="page-link" th:href="@{/user/listUser(page=${users.number},nameSearch=${nameSearch},
+                idTypeUser=${idTypeUser})}" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <th:block th:each="pageNo : ${#numbers.sequence(1,users.totalPages)}">
+                <li class="page-item">
+                    <a th:if="${pageNo != users.number +1 && pageNo != 0}" class="page-link"
+                       th:href="@{/user/listUser(page=${pageNo},nameSearch=${nameSearch},
+                       idTypeUser=${idTypeUser})}" th:text="${pageNo}"></a>
+                </li>
+                <li class="page-item active">
+                    <a th:if="${pageNo == users.number +1}" class="page-link"
+                       th:href="@{/user/listUser(page=${pageNo},nameSearch=${nameSearch},
+                       idTypeUser=${idTypeUser})}" th:text="${pageNo}"></a>
+                </li>
+            </th:block>
+
+            <li th:if="${users.hasNext()}" class="page-item">
+                <a class="page-link" th:href="@{/user/listUser(page=${users.number + 2},
+                nameSearch=${nameSearch},idTypeUser=${idTypeUser})}">Next</a>
+            </li>
+            <li th:if="${!users.hasNext()}" class="page-item disabled">
+                <a class="page-link" th:href="@{/user/listUser(page=${users.number + 2},
+                nameSearch=${nameSearch},idTypeUser=${idTypeUser})}">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div th:insert="layout::getScript"></div>
 </body>
 </html>

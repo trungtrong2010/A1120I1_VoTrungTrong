@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="layout::labHeader">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Detail user</title>
 </head>
 <body>
-$END$
+
+<div th:insert="layout::navnar"></div>
+
+<h2>Detail user</h2>
+<p><a href="/user/listUser">Back to User list</a></p>
+
+<table th:object="${user}" style="margin-left: 40%;">
+    <tr>
+        <td>Name:</td>
+        <td><input th:field="*{name}" disabled></td>
+    </tr>
+
+    <tr>
+        <td>Phone Number:</td>
+        <td><input th:field="*{phoneNumber}" disabled></td>
+    </tr>
+
+    <tr>
+        <td>Age :</td>
+        <td><input type="number" th:field="*{age}" disabled></td>
+    </tr>
+
+    <tr>
+        <td>Email:</td>
+        <td><input th:field="*{email}" disabled></td>
+    </tr>
+
+    <tr>
+        <td>Type</td>
+        <td><input th:field="*{typeUser.name}" disabled></td>
+    </tr>
+</table>
+
+<div th:insert="layout::getScript"></div>
 </body>
 </html>

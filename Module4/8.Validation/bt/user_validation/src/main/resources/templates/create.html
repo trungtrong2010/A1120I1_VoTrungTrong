@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="layout::labHeader">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Create user</title>
 </head>
 <body>
-$END$
+
+<div th:insert="layout::navnar"></div>
+
+<h2>Create/edit user</h2>
+<p><a href="/user/listUser">Back to User list</a></p>
+
+<form method="post" action="/user/save" th:object="${user}" style="margin-left: 40%">
+    <table>
+        <input type="hidden" th:field="${user.id}">
+        <tr>
+            <td>Name:</td>
+            <td><input th:field="*{name}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p></td>
+        </tr>
+
+        <tr>
+            <td>Phone Number:</td>
+            <td><input th:field="*{phoneNumber}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p></td>
+        </tr>
+
+        <tr>
+            <td>Age :</td>
+            <td><input type="number" th:field="*{age}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p></td>
+        </tr>
+
+        <tr>
+            <td>Email:</td>
+            <td><input th:field="*{email}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p></td>
+        </tr>
+
+        <tr>
+            <td>Type</td>
+            <td th:each="type : ${typeUsers}" >
+                <input type="radio" th:value="${type.id}" th:field="*{typeUser}">
+                <label th:text="${type.name}"></label>
+            </td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('typeUser')}" th:errors="*{typeUser}"></p></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button>Save</button></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
+
+<div th:insert="layout::getScript"></div>
 </body>
 </html>
