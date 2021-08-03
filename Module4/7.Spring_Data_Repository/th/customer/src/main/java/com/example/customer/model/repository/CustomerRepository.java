@@ -17,7 +17,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
             , nativeQuery=true)
     Page<Customer> findAllByProvinceId(@Param("id") int id, Pageable pageable);
 
-    @Query(value = "SELECT * FROM customer JOIN province WHERE customer.province_id = province.id AND province.id = ?1 AND customer.name like %?2%"
-            , nativeQuery = true)
-    Page<Customer> findAllByProvinceIdAndNameContaining(int id, String name, Pageable pageable);
+//    @Query(value = "SELECT * FROM customer INNER JOIN province on customer.province_id = province.id where province.id = ?1 AND customer.name like %?2%"
+//            , nativeQuery = true)
+
+    Page<Customer> findAllByProvince_IdAndNameContaining(int id, String name, Pageable pageable);
 }

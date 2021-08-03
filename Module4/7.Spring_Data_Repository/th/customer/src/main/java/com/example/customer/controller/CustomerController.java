@@ -28,19 +28,18 @@ public class CustomerController {
     private String showList(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "idProvince", defaultValue = "0") int idProvince,
                             @RequestParam(value = "nameSearch", defaultValue = "") String nameSearch, Model model) {
         Sort sort = Sort.by("name").and(Sort.by("gender")).descending();
+        model.addAttribute("provinces", provinceService.findAll());
+        model.addAttribute("idProvince", provinceService.findById(idProvince));
+        model.addAttribute("nameSearch", nameSearch);
         if (nameSearch.equals("")) {
             if (idProvince == 0) {
-                model.addAttribute("list", customerService.findAll(PageRequest.of(page - 1, 1, sort)));
+                model.addAttribute("list", customerService.findAll(PageRequest.of(page - 1, 3, sort)));
             } else {
-                model.addAttribute("provinces", provinceService.findAll());
-                model.addAttribute("idProvince", idProvince);
-                model.addAttribute("list", customerService.findAllByProvinceId(idProvince, PageRequest.of(page - 1, 10, sort)));
+                model.addAttribute("list", customerService.findAllByProvinceId(idProvince, PageRequest.of(page - 1, 3, sort)));
             }
         } else {
-            model.addAttribute("nameSearch", nameSearch);
-//            model.addAttribute("idProvince", idProvince);
-//            model.addAttribute("list", customerService.findAllByProvinceIdAndNameContaining(idProvince, nameSearch, PageRequest.of(page - 1, 3, sort)));
-            model.addAttribute("list", customerService.findByNameContaining(nameSearch, PageRequest.of(page - 1, 3, sort)));
+            model.addAttribute("list", customerService.findAllByProvince_IdAndNameContaining(idProvince, nameSearch, PageRequest.of(page - 1, 3, sort)));
+//            model.addAttribute("list", customerService.findByNameContaining(nameSearch, PageRequest.of(page - 1, 3, sort)));
         }
         return "list";
     }

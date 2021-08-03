@@ -19,5 +19,5 @@ public interface ICustomerService {
 
     Page<Customer> findAllByProvinceId(int id, Pageable pageable);
 
-    Page<Customer> findAllByProvinceIdAndNameContaining(int id, String name, Pageable pageable);
+    Page<Customer> findAllByProvince_IdAndNameContaining(int id, String name, Pageable pageable);
 }
