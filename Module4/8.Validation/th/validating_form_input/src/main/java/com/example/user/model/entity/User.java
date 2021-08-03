@@ -12,7 +12,7 @@ public class User {
 //    @NotEmpty(message = "not found")
     @NotBlank(message = "not found")
 //    @NotNull(message = "Not found")
-    @Size(min = 2, max = 30, message = "1<x<31")
+//    @Size(min = 2, max = 30, message = "1<x<31")
     private String name;
 
 //    @NotBlank(message = "not found") error
