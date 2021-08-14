@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="layout::labHeader">
+    <meta charset="UTF-8">
+    <title>Detail customer</title>
+</head>
+<body>
+
+<div th:insert="layout :: header"></div>
+
+<h2>Detail customer</h2>
+<p><a href="/customer/list">Back to customer list</a></p>
+
+<table>
+    <tr>
+        <td>Id:</td>
+        <td><input th:field="${customer.id}" disabled></td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td><input th:field="${customer.name}" disabled></td>
+    </tr>
+    <tr>
+        <td>Date of birthday:</td>
+        <td><input th:field="${customer.dateOfBirthday}" disabled></td>
+    </tr>
+    <tr>
+        <td>Gender:</td>
+        <td th:each="gender, loop : ${listGender}" th:if="${customer.gender == loop.index}">
+            <input th:value="${gender}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>Province:</td>
+        <td><input th:field="${customer.province.name}" disabled></td>
+    </tr>
+</table>
+
+<div th:insert="layout :: footer"></div>
+
+</body>
+</html>
