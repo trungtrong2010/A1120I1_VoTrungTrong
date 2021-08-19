@@ -1,10 +1,37 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <html lang="en">
-<head>
+<head th:insert="layout::headCss">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>List product</title>
+    <style>
+
+    </style>
 </head>
 <body>
-$END$
+<h2 style="color: red; text-align: center">Product list</h2>
+
+<p style="color: green; text-align: center" th:text="${message}"></p>
+<div style="text-align: center">
+    <a href="/product/cart">My shopping cart</a>
+</div>
+<div class="container-fluid" style="text-align: center">
+    <div class="row d-inline-flex">
+        <div th:each="product : ${products}" class="col-12 col-sm-6 col-md-4 p-2">
+            <div class="d-flex flex-column text-center border height100">
+                <a th:href="@{/product/detail/{id}(id=${product.id})}">
+                    <img width="230px" height="250px" th:src="${product.image}"/>
+                </a>
+                <p>Mã sản phẩm: <span th:text="${product.id}"></span></p>
+                <p>Tên sản phẩm: <span th:text="${product.name}"></span></p>
+                <p>Giá cũ:<strike th:text="${product.price * 2}"></strike>VNđ</p>
+                <p>Giá ưu đãi: <span th:text="${product.price}"></span>VNđ</p>
+                <a th:href="@{/product/addToCart/{id}(id=${product.id})}">Add to cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="layout::bootstrap_script"></div>
 </body>
 </html>

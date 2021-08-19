@@ -21,4 +21,7 @@ public interface IUserService {
     Page<User> findByNameContainingAndTypeUser_Id(String name, int idTypeUser, Pageable pageable);
 
     Page<User> findByTypeUser_Id(int id, Pageable pageable);
+
+    List<User> findByPhoneNumber(String number);
+
 }

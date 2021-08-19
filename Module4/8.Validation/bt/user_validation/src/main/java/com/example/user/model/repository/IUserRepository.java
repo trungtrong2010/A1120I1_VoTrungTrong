@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface IUserRepository extends JpaRepository<User, Integer> {
 
     @Query(value = "select * from user", nativeQuery = true)
@@ -17,4 +19,6 @@ public interface IUserRepository extends JpaRepository<User, Integer> {
     Page<User> findByNameContainingAndTypeUser_Id(String name, int idTypeUser, Pageable pageable);
 
     Page<User> findByTypeUser_Id(int id, Pageable pageable);
+
+    List<User> findByPhoneNumber(String number);
 }

@@ -1,10 +1,37 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head>
+<head th:insert="layout::headCss">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>cart</title>
 </head>
 <body>
-$END$
+
+<h2>Shopping cart</h2>
+<p><a href="/product/list">Back to product list</a></p>
+
+
+<table class="table table-hover">
+    <tr>
+        <td>No</td>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Image</td>
+        <td>Price</td>
+        <td>Amount</td>
+        <td>Delete</td>
+    </tr>
+    <tr th:each="product, loop : ${cartList}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td><img width="100px" height="120px" th:src="${product.image}"></td>
+        <td th:text="${product.price}"></td>
+        <td></td>
+        <td><a th:href="@{/product/cart/{id}(id= ${product.id})}">Delete</a></td>
+    </tr>
+</table>
+
+<div th:insert="layout::bootstrap_script"></div>
 </body>
 </html>

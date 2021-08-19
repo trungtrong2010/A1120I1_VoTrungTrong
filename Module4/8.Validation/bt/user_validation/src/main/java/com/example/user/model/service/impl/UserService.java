@@ -50,4 +50,10 @@ public class UserService implements IUserService {
     public Page<User> findByTypeUser_Id(int id, Pageable pageable) {
         return this.userRepository.findByTypeUser_Id(id, pageable);
     }
+
+    @Override
+    public List<User> findByPhoneNumber(String number) {
+        return this.userRepository.findByPhoneNumber(number);
+    }
+
 }

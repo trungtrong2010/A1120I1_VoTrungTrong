@@ -1,10 +1,13 @@
 package com.example.user.model.entity;
 
+import com.example.user.model.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Entity
 public class User implements Validator {

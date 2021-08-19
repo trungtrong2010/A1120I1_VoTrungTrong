@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Smart phone</title>
+</head>
+<body>
+
+<h2>List Smart phone</h2>
+
+<p><a href="/create">Create smart phone</a></p>
+
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Id</th>
+        <th>producer</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="smartPhone, loop : ${smartPhones}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${smartPhone.id}"></td>
+        <td th:text="${smartPhone.producer}"></td>
+        <td th:text="${smartPhone.model}"></td>
+        <td th:text="${smartPhone.price}"></td>
+        <td><a th:href="@{/detail/{id}(id=${smartPhone.id})}">Detail</a></td>
+        <td><a th:href="@{/create/{id}(id=${smartPhone.id})}">Detail</a></td>
+        <td><a th:href="@{/detail/{id}(id=${smartPhone.id})}">Detail</a></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -8,18 +8,22 @@
 <body>
 
 <div th:insert="layout :: header"></div>
-<h2>Create customer</h2>
+<h2>Save customer</h2>
 
 <form method="post" action="/customer/save" style="margin-left: 40%">
+    <input type="hidden" th:field="${customer.id}">
     <table>
         <tr>
             <td>Name:</td>
             <td><input th:field="${customer.name}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.name')}" th:errors="${customer.name}"></p></td>
         </tr>
 
         <tr>
             <td>Date of birthday:</td>
             <td><input type="date" th:field="${customer.dateOfBirthday}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.dateOfBirthday')}" th:errors="${customer.dateOfBirthday}"></p>
+            </td>
         </tr>
 
         <tr>
@@ -28,22 +32,27 @@
                 <input type="radio" th:field="${customer.gender}" th:value="${gender.key}">
                 <label th:text="${gender.value}"></label>
             </td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.gender')}" th:errors="${customer.gender}"></p></td>
         </tr>
         <tr>
             <td>Id-Card:</td>
             <td><input th:field="${customer.idCard}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.idCard')}" th:errors="${customer.idCard}"></p></td>
         </tr>
         <tr>
             <td>Number phone:</td>
             <td><input th:field="${customer.phone}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.phone')}" th:errors="${customer.phone}"></p></td>
         </tr>
         <tr>
             <td>Email:</td>
             <td><input th:field="${customer.email}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.email')}" th:errors="${customer.email}"></p></td>
         </tr>
         <tr>
             <td>Address:</td>
             <td><input th:field="${customer.address}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.address')}" th:errors="${customer.address}"></p></td>
         </tr>
         <tr>
             <td>Type:</td>
@@ -52,6 +61,7 @@
                     <option th:each="customerType : ${customerTypes}"
                             th:value="${customerType.id}" th:text="${customerType.name}"></option>
                 </select>
+            <td><p class="validColor" th:if="${#fields.hasErrors('customer.customerType')}" th:errors="${customer.customerType}"></p>
             </td>
         </tr>
         <tr>

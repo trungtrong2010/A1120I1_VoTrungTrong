@@ -1,10 +1,53 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head>
+<head th:insert="layout::bootstrap_head">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Customer list</title>
 </head>
 <body>
-$END$
+
+<div th:insert="layout :: header"></div>
+
+<h2>Customer list</h2>
+
+<h2><a class="btn btn-primary" href="/customer/create" role="button">Create customer</a></h2>
+
+<p style="text-align: center; color: green" th:text="${msg}"></p>
+
+<table class="table table-hover">
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Date of birthday</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Type</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="customer,loop : ${customers}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.dateOfBirthday}"></td>
+        <td th:switch="${customer.gender}">
+            <label th:case="0">Female</label>
+            <label th:case="1">Male</label>
+            <label th:case="2">LGBT</label>
+        </td>
+        <td th:text="${customer.email}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.customerType.name}"></td>
+        <td><a class="btn btn-primary" th:href="@{/customer/{id}/detail(id=${customer.id})}" role="button">Detail</a></td>
+        <td><a class="btn btn-warning" th:href="@{/customer/{id}/update(id=${customer.id})}" role="button">Edit</a></td>
+        <td><a class="btn btn-danger" th:href="@{/customer/{id}/remove(id=${customer.id})}" role="button">Delete</a></td>
+    </tr>
+</table>
+
+<div th:insert="layout :: footer"></div>
+
+<div th:insert="layout :: bootstrap_body"></div>
 </body>
 </html>

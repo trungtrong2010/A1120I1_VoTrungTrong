@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f4c0ee17-f26d-453a-946b-4910b36c2eb5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../case_module4/furama/src/main/java/com/codegym/furama/model/entity/customer/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_module4/furama/src/main/java/com/codegym/furama/model/entity/customer/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1.Tong_quan_Spring_MVC/demo/demo_full" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1.Tong_quan_Spring_MVC/demo/demo_full" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/repository/IProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/repository/IProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/java/com/codegym/vtt/model/service/impl/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10.Session_Cookie/bt/create_cart/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/repository/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bt/user_validation/src/main/java/com/example/user/model/service/impl/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bt/user_validation/src/main/resources/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../bt/user_validation/src/main/resources/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo_student_A11" beforeDir="false" afterPath="$PROJECT_DIR$/../demo_student_A11" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/CustomerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/aspect/CustomerAspect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/controller/CustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/entity/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/entity/Province.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/repository/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/repository/ProvinceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/service/ICustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/service/IProvinceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/service/impl/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/java/com/example/customer/model/service/impl/ProvinceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/resources/templates/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/resources/templates/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/resources/templates/detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/resources/templates/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/resources/templates/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/main/resources/templates/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../9.AOP/th/customer/src/test/java/com/example/customer/CustomerApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1wkKiI6Fr16nldN70KK9a0C51Ns" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo_student_A11" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4c0ee17-f26d-453a-946b-4910b36c2eb5" name="Default Changelist" comment="" />
+      <created>1628997271310</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628997271310</updated>
+      <workItem from="1628997272718" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1628997282482">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1628997282482" />
+  </component>
+</project>
