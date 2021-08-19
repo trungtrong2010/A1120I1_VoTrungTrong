@@ -29,8 +29,8 @@
         <td th:text="${smartPhone.model}"></td>
         <td th:text="${smartPhone.price}"></td>
         <td><a th:href="@{/detail/{id}(id=${smartPhone.id})}">Detail</a></td>
-        <td><a th:href="@{/create/{id}(id=${smartPhone.id})}">Detail</a></td>
-        <td><a th:href="@{/detail/{id}(id=${smartPhone.id})}">Detail</a></td>
+        <td><a th:href="@{/update/{id}(id=${smartPhone.id})}">Edit</a></td>
+        <td><a th:href="@{/remove/{id}(id=${smartPhone.id})}">Delete</a></td>
     </tr>
 </table>
 </body>

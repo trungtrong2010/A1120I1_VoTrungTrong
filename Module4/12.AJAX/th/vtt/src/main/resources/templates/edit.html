@@ -3,33 +3,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create</title>
+    <title>Edit</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h2>Create Smart Phone</h2>
+<h2>Edit Smart Phone</h2>
 
 <p style="color: red" id="result"></p>
 
+<input type="hidden" th:field="${smartPhone.id}">
 <p>producer: </p>
-<input type="text" id="producer">
+<input type="text" id="producer" th:field="${smartPhone.producer}">
 
 <p>Model: </p>
-<input type="text" id="model">
-
-<p>producer: </p>
-<input type="number" id="price">
+<input type="text" id="model" th:field="${smartPhone.model}">
+<p>price: </p>
+<input type="number" id="price" th:field="${smartPhone.price}">
 
 <input type="button" id="buttonClick" value="Create">
 
 <script>
     $(document).ready(function () {
         $('#buttonClick').click(function (event) {
+            var id = document.getElementById("id").value;
             var producer = document.getElementById("producer").value;
             var model = document.getElementById("model").value;
             var price = document.getElementById("price").value;
-            var smartPhone = {"producer":producer,"model":model, "price": price};
+            var smartPhone = {"id":id,"producer":producer,"model":model, "price": price};
             console.log(smartPhone);
             $.ajax({
                 headers:{
@@ -41,7 +42,7 @@
                 url : "/create",
                 success: function (smartPhone) {
                     var content = "";
-                    content+="<span>Smart phone was create </span>";
+                    content+="<span>Smart phone was update </span>";
                     content+= smartPhone.producer;
                     document.getElementById("result").innerHTML = content;
                 }

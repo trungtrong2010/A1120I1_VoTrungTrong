@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Detail Smart Phone</h2>
+
+<p>producer: </p>
+<input type="text" id="producer" th:field="${smartPhone.producer}">
+
+<p>Model: </p>
+<input type="text" id="model" th:field="${smartPhone.model}">
+<p>price: </p>
+<input type="number" id="price" th:field="${smartPhone.price}">
+
+</body>
+</html>
