@@ -39,11 +39,15 @@
                 type : "POST",
                 data: JSON.stringify(smartPhone),
                 url : "/create",
-                success: function (smartPhone) {
+                success: function (smartPhone) { // sử lý kq trả về (ngoài ra còn error trả về lỗi)
                     var content = "";
-                    content+="<span>Smart phone was create </span>";
+                    // content+="<span>Smart phone was create </span>";
+                    // content+= smartPhone.producer;
+                    // document.getElementById("result").innerHTML = content;
+
+                    content+="Đã thêm thành công ";
                     content+= smartPhone.producer;
-                    document.getElementById("result").innerHTML = content;
+                    alert(content)
                 }
             })
         })

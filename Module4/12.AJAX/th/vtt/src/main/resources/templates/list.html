@@ -30,8 +30,21 @@
         <td th:text="${smartPhone.price}"></td>
         <td><a th:href="@{/detail/{id}(id=${smartPhone.id})}">Detail</a></td>
         <td><a th:href="@{/update/{id}(id=${smartPhone.id})}">Edit</a></td>
-        <td><a th:href="@{/remove/{id}(id=${smartPhone.id})}">Delete</a></td>
+<!--        <td><a th:href="@{/remove/{id}(id=${smartPhone.id})}">Delete</a></td>-->
+        <td><button onclick="confirmAction()" value="Delete" ></button></td>
     </tr>
 </table>
+
+<script>
+    function confirmAction() {
+        var
+        let confirmAction = confirm("Do you want to delete");
+        if (confirmAction) {
+            alert("Action successfully executed");
+        } else {
+            alert("Action canceled");
+        }
+    }
+</script>
 </body>
 </html>

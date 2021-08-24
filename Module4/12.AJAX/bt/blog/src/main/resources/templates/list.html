@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div>
+    <label>Tìm kiếm:</label>
+    <input type="text" name="nameSearch" id="nameSearch"/>
+
+    <input type="submit" onclick="searchBlog()" value="Search"/>
+</div>
+
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <td>Content</td>
+    </tr>
+    <tr th:each="blog, loop : ${blogs}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${blog.name}"></td>
+        <td th:text="${blog.content}"></td>
+    </tr>
+</table>
+<p id="download">
+    <button onclick="download(1)">Tải thêm</button>
+</p>
+<p id="result"></p>
+
+
+<script>
+
+    function download(count) {
+        console.log(count);
+            $.ajax({
+            type: "GET",
+            url: "/listRest",
+            typeData: "JSON",
+            success: function (data) {
+                // console.log(data)
+                var contentAdd = "<table border='1'>"
+                for (let i = 0; i < count; i++) {
+                    // console.log(data[i].name);
+                    contentAdd += "<tr><td>" + (i + 1) + "</td>";
+                    contentAdd += "<td>" + data[i].name + "</td>";
+                    contentAdd += "<td>" + data[i].content + "</td></tr>";
+                }
+                contentAdd += "</table>"
+                count++;
+                if (count <= data.length) {
+                    contentAdd+="<button onclick=\"download("+count+")\">Tải thêm</button>";
+                } else contentAdd+="<p>over limit</p>"
+                console.log(contentAdd);
+                document.getElementById("download").innerHTML = contentAdd;
+            }
+        })
+    }
+
+    function searchBlog() {
+        var nameSearch = document.getElementById("nameSearch").value;
+        $.ajax({
+            type: "GET",
+            url: "/search/" + nameSearch,
+            typeData: "json",
+            success: function (data) {
+                // console.log(data)
+                var result = "<table border='1'>"
+                for (let i = 0; i < data.length; i++) {
+                    // console.log(data[i].name);
+                    result += "<tr><td>" + (i + 1) + "</td>";
+                    result += "<td>" + data[i].name + "</td>";
+                    result += "<td>" + data[i].content + "</td></tr>";
+                }
+                result += "</table>"
+                console.log(result)
+                document.getElementById("result").innerHTML = result;
+            }
+        })
+    }
+
+
+</script>
+
+</body>
+</html>

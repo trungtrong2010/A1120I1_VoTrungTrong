@@ -49,4 +49,11 @@ public class SmartPhoneController {
         return "detail";
     }
 
+    @GetMapping("delete/{id}")
+    public ResponseEntity<SmartPhone> delete(@PathVariable("id") int id, Model model) {
+        SmartPhone smartPhone = this.smartPhoneService.findById(id);
+        this.smartPhoneService.remove(smartPhone);
+        model.addAttribute("smartPhone", smartPhone);
+        return new ResponseEntity<>(smartPhone, HttpStatus.OK);
+    }
 }
