@@ -4,6 +4,8 @@ import com.codegym.furama.model.entity.customer.Customer;
 import com.codegym.furama.model.service.customer.ICustomerService;
 import com.codegym.furama.model.service.customer.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,10 +25,16 @@ public class CustomerController {
     private ICustomerTypeService customerTypeService;
 
     @GetMapping("/list")
-    public String showList(Model model) {
-//        Sort sort =Sort.by("name").and(Sort.by("dateOfBirthday"));
-//        model.addAttribute("customers", this.customerService.findAll(PageRequest.of(page-1,2,)))
-        model.addAttribute("customers", this.customerService.findAll());
+    public String showList(@RequestParam(value = "page", defaultValue = "1") int page,
+                           @RequestParam(value = "nameSearch", defaultValue = "") String nameSearch, Model model) {
+        Sort sort =Sort.by("name").and(Sort.by("dateOfBirthday"));
+        if (nameSearch == null) {
+            model.addAttribute("customers", this.customerService.findAll(PageRequest.of(page-1,2,sort)));
+        } else {
+            model.addAttribute("nameSearch", nameSearch);
+            model.addAttribute("customers",
+                    this.customerService.findAllByNameContaining(nameSearch, PageRequest.of(page - 1, 2, sort)));
+        }
         return "customer/list";
     }
 

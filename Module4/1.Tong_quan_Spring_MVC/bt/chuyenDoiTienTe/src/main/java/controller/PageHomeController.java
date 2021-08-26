@@ -11,7 +11,7 @@ public class PageHomeController {
 
     @GetMapping(value = {"","/home"})
     private String showForm() {
-        return "form";
+        return "abc";
     }
 
     @PostMapping("/home2")

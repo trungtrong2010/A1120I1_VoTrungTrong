@@ -1,4 +1,4 @@
-package com.codegym.furama.validate;
+package com.codegym.furama.validate.date;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

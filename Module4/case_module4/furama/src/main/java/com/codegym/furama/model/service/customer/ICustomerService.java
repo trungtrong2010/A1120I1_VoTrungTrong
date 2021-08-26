@@ -7,13 +7,14 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface ICustomerService {
-//    Page<Customer> findAllPa(Pageable pageable);
-
-    List<Customer> findAll();
+    Page<Customer> findAll(Pageable pageable);
 
     Customer findById(int id);
 
     void save(Customer customer);
 
     void remove(Customer customer);
+
+    Page<Customer> findAllByNameContaining(String name, Pageable pageable);
+
 }

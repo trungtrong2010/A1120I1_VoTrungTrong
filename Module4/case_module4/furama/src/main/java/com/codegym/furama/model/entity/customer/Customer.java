@@ -1,5 +1,5 @@
 package com.codegym.furama.model.entity.customer;
-import com.codegym.furama.validate.DateConstaint;
+import com.codegym.furama.validate.date.DateConstaint;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

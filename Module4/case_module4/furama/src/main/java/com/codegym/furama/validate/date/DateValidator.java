@@ -1,13 +1,11 @@
-package com.codegym.furama.validate;
+package com.codegym.furama.validate.date;
 
-import com.codegym.furama.model.entity.customer.Customer;
 import com.codegym.furama.model.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Calendar;
-import java.util.Date;
 
 public class DateValidator implements ConstraintValidator<DateConstaint, String> {
 

@@ -16,14 +16,9 @@ public class CustomerService implements ICustomerService {
     @Autowired
     private ICustomerRepository customerRepository;
 
-//    @Override
-//    public Page<Customer> findAllPa(Pageable pageable) {
-//        return this.customerRepository.findAllPa(pageable);
-//    }
-
     @Override
-    public List<Customer> findAll() {
-        return this.customerRepository.findAll();
+    public Page<Customer> findAll(Pageable pageable) {
+        return this.customerRepository.findAll(pageable);
     }
 
     @Override
@@ -39,5 +34,10 @@ public class CustomerService implements ICustomerService {
     @Override
     public void remove(Customer customer) {
         this.customerRepository.delete(customer);
+    }
+
+    @Override
+    public Page<Customer> findAllByNameContaining(String name, Pageable pageable) {
+        return this.customerRepository.findAllByNameContaining(name, pageable);
     }
 }

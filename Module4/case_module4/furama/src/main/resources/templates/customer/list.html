@@ -15,6 +15,11 @@
 
 <p style="text-align: center; color: green" th:text="${msg}"></p>
 
+<form method="get" action="" class="inputSearch">
+    <input type="text" name="nameSearch" th:value="${nameSearch}">
+    <button type="submit">Search</button>
+</form>
+
 <table class="table table-hover">
     <tr>
         <th>No</th>
@@ -45,6 +50,36 @@
         <td><a class="btn btn-danger" th:href="@{/customer/{id}/remove(id=${customer.id})}" role="button">Delete</a></td>
     </tr>
 </table>
+
+<div style=" margin-left: 940px">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li th:if="${customers.hasPrevious()}" class="page-item">
+                <a class="page-link" th:href="@{/customer/list(page=${customers.number},nameSearch=${nameSearch})}" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li th:if="${!customers.hasPrevious()}" class="page-item disabled">
+                <a class="page-link" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <th:block th:each="pageNo : ${#numbers.sequence(1,customers.totalPages)}">
+                <li class="page-item">
+                    <a th:if="${pageNo != customers.number +1 && pageNo != 0}" class="page-link"
+                       th:href="@{/customer/list(page=${pageNo},nameSearch=${nameSearch})}" th:text="${pageNo}"></a>
+                </li>
+                <li class="page-item active">
+                    <a th:if="${pageNo == customers.number +1}" class="page-link"
+                       th:href="@{/customer/list(page=${pageNo},nameSearch=${nameSearch})}" th:text="${pageNo}"></a>
+                </li>
+            </th:block>
+
+            <li th:if="${customers.hasNext()}" class="page-item">
+                <a class="page-link" th:href="@{/customer/list(page=${customers.number + 2},nameSearch=${nameSearch})}">Next</a>
+            </li>
+            <li th:if="${!customers.hasNext()}" class="page-item disabled">
+                <a class="page-link">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
 <div th:insert="layout :: footer"></div>
 
