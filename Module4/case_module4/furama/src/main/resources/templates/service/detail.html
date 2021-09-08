@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail service</title>
+</head>
+<body>
+
+<form>
+    <div class="modal-header">
+        <h2 class="modal-title">Detail service</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover">
+            <tr>
+                <td>Name:</td>
+                <td th:text="${service.name}"></td>
+            </tr>
+            <tr>
+                <td>Area:</td>
+                <td th:text="${service.area}"></td>
+            </tr>
+            <tr>
+                <td>Cost:</td>
+                <td th:text="${service.cost}"></td>
+            </tr>
+            <tr>
+                <td>Max people:</td>
+                <td th:text="${service.maxPeople}"></td>
+            </tr>
+            <tr>
+                <td>Standard Room:</td>
+                <td th:text="${service.standardRoom}"></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td th:text="${service.descriptionOtherConvenience}"></td>
+            </tr>
+            <tr>
+                <td>Pool area:</td>
+                <td th:text="${service.poolArea}"></td>
+            </tr>
+            <tr>
+                <td>Floors:</td>
+                <td th:text="${service.numberOfFloors}"></td>
+            </tr>
+            <tr>
+                <td>Rent type:</td>
+                <td th:text="${service.rentType.name}"></td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td th:text="${service.serviceType.name}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+    </div>
+
+
+
+</body>
+</html>

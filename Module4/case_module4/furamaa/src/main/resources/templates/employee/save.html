@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:insert="layout :: bootstrap_head">
+    <meta charset="UTF-8">
+    <title>Save employee</title>
+</head>
+<body>
+
+<div th:insert="layout :: header"></div>
+<h2>Save employee</h2>
+
+<p th:if="${msg!=null}" th:text="${msg}"></p>
+
+<form method="post" action="/employee/save" style="margin-left: 40%">
+    <input type="hidden" th:field="${employee.id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input th:field="${employee.name}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.name')}" th:errors="${employee.name}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Day of birth:</td>
+            <td><input type="date" th:field="${employee.dayOfBirth}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.dayOfBirth')}"
+                   th:errors="${employee.dayOfBirth}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Id-Card:</td>
+            <td><input th:field="${employee.idCard}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.idCard')}"
+                   th:errors="${employee.idCard}"></p></td>
+        </tr>
+        <tr>
+            <td>Salary:</td>
+            <td><input th:field="${employee.salary}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.salary')}"
+                   th:errors="${employee.salary}"></p></td>
+        </tr>
+        <tr>
+            <td>Number phone:</td>
+            <td><input th:field="${employee.phone}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.phone')}" th:errors="${employee.phone}"></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email:</td>
+            <td><input th:field="${employee.email}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.email')}" th:errors="${employee.email}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input th:field="${employee.address}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.address')}"
+                   th:errors="${employee.address}"></p></td>
+        </tr>
+        <tr>
+            <td>Division:</td>
+            <td>
+                <select th:field="${employee.division.id}">
+                    <option th:each="division : ${divisions}"
+                            th:value="${division.id}" th:text="${division.name}"></option>
+                </select>
+            </td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.division')}"
+                   th:errors="${employee.division}"></p></td>
+        </tr>
+        <tr>
+            <td>educationDegree:</td>
+            <td>
+                <select th:field="${employee.educationDegree.id}">
+                    <option th:each="educationDegree : ${educationDegrees}"
+                            th:value="${educationDegree.id}" th:text="${educationDegree.name}"></option>
+                </select>
+            </td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.educationDegree')}"
+                   th:errors="${employee.educationDegree}"></p></td>
+        </tr>
+        <tr>
+            <td>position:</td>
+            <td>
+                <select th:field="${employee.position.id}">
+                   <option th:each="position : ${positions}"
+                           th:value="${position.id}" th:text="${position.name}"></option>
+                </select>
+            </td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('employee.position')}"
+                   th:errors="${employee.position}"></p></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <a href="/employee/list" class="btn btn-light" role="button">Back</a>
+                <button class="btn btn-primary">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div th:insert="layout :: footer"></div>
+<div th:insert="layout :: bootstrap_body"></div>
+</body>
+</html>

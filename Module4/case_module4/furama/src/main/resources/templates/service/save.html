@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save service</title>
+</head>
+<body>
+
+<form method="post" action="/service/save" id="form_input" style="text-align: center">
+    <input type="hidden" th:field="${service.id}">
+
+    <div class="modal-header">
+        <h2 class="modal-title">Save service</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td><input th:field="${service.name}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.name')}" th:errors="${service.name}"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Area: </td>
+                <td><input th:field="${service.area}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.area')}"
+                       th:errors="${service.area}"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Cost: </td>
+                <td><input type="number" th:field="${service.cost}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.cost')}"
+                       th:errors="${service.cost}"></p></td>
+            </tr>
+            <tr>
+                <td>Max people: </td>
+                <td><input th:field="${service.maxPeople}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.maxPeople')}"
+                       th:errors="${service.maxPeople}"></p></td>
+            </tr>
+            <tr>
+                <td>Standard room: </td>
+                <td><input th:field="${service.standardRoom}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.standardRoom')}" th:errors="${service.standardRoom}"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Description: </td>
+                <td><input th:field="${service.descriptionOtherConvenience}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.descriptionOtherConvenience')}" th:errors="${service.descriptionOtherConvenience}"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>Pool area: </td>
+                <td><input th:field="${service.poolArea}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.poolArea')}"
+                       th:errors="${service.poolArea}"></p></td>
+            </tr>
+            <tr>
+                <td>Floors: </td>
+                <td><input th:field="${service.numberOfFloors}"></td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.numberOfFloors')}"
+                       th:errors="${service.numberOfFloors}"></p></td>
+            </tr>
+            <tr>
+                <td>Division:</td>
+                <td>
+                    <select th:field="${service.rentType.id}">
+                        <option th:each="rentType : ${rentTypes}"
+                                th:value="${rentType.id}" th:text="${rentType.name}"></option>
+                    </select>
+                </td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.rentType')}"
+                       th:errors="${service.rentType}"></p></td>
+            </tr>
+
+            <tr>
+                <td>position:</td>
+                <td>
+                    <select th:field="${service.serviceType.id}">
+                        <option th:each="serviceType : ${serviceTypes}"
+                                th:value="${serviceType.id}" th:text="${serviceType.name}"></option>
+                    </select>
+                </td>
+                <td><p class="validColor" th:if="${#fields.hasErrors('service.serviceType')}"
+                       th:errors="${service.serviceType}"></p></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+<!--        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>-->
+        <a href="/service/list" class="btn btn-secondary">Back</a>
+        <button type="submit" class="btn btn-primary save">Save</button>
+    </div>
+
+</form>
+
+</body>
+</html>

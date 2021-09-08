@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:insert="layout :: bootstrap_head">
+    <meta charset="UTF-8">
+    <title>Save contract</title>
+</head>
+<body>
+
+<div th:insert="layout :: header"></div>
+<h2>Save contract</h2>
+
+<p th:if="${msg!=null}" th:text="${msg}"></p>
+
+<form method="post" action="/contract/save" style="margin-left: 40%">
+    <input type="hidden" th:field="${contract.id}">
+    <table>
+        <tr>
+            <td>Customer:</td>
+            <td>
+                <select th:field="${contract.customer.id}">
+                    <option th:each="customer : ${customers}" th:value="${customer.id}"
+                            th:text="${customer.name}"></option>
+                </select>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Employee:</td>
+            <td>
+                <select th:field="${contract.employee.id}">
+                    <option th:each="employee : ${employees}" th:value="${employee.id}"
+                            th:text="${employee.name}"></option>
+                </select>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Service:</td>
+            <td>
+                <select th:field="${contract.service.id}">
+                    <option th:each="service : ${services}" th:value="${service.id}"
+                            th:text="${service.name}"></option>
+                </select>
+            </td>
+            <td></td>
+        </tr>
+<!--        YYYY-MM-DDThh:mm-->
+        <tr>
+            <td>Star date:</td>
+<!--            <td><input type="datetime-local" th:field="${#temporals.format(contract.starDate, 'yyyy-MM-dd HH:mm')}"></td>-->
+            <td><input type="datetime-local" th:field="${contract.starDate}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('contract.starDate')}"
+                   th:errors="${contract.starDate}"></p></td>
+        </tr>
+        <tr>
+            <td>End date:</td>
+<!--            <td><input type="datetime-local" th:field="${#temporals.format(contract.endDate, 'yyyy-MM-dd HH:mm')}"></td>-->
+            <td><input type="datetime-local" th:field="${contract.endDate}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('contract.endDate')}"
+                   th:errors="${contract.endDate}"></p></td>
+        </tr>
+        <tr>
+            <td>Deposit:</td>
+            <td><input th:field="${contract.deposit}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('contract.deposit')}"
+                   th:errors="${contract.deposit}"></p></td>
+        </tr>
+        <tr>
+            <td>Total money:</td>
+            <td><input th:field="${contract.totalMoney}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('contract.totalMoney')}"
+                   th:errors="${contract.totalMoney}"></p></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <a href="/contract/list" class="btn btn-light" role="button">Back</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div th:insert="layout :: footer"></div>
+<div th:insert="layout :: bootstrap_body"></div>
+</body>
+</html>

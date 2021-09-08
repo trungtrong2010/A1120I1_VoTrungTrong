@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail contract</title>
+</head>
+<body>
+
+<form>
+    <div class="modal-header">
+        <h2 class="modal-title">Detail contract</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover">
+            <tr>
+                <td>Customer:</td>
+                <td th:text="${contract.customer.name}"></td>
+            </tr>
+            <tr>
+                <td>Employee:</td>
+                <td th:text="${contract.employee.name}"></td>
+            </tr>
+            <tr>
+                <td>Service:</td>
+                <td th:text="${contract.service.name}"></td>
+            </tr>
+            <tr>
+                <td>Star date:</td>
+                <td th:text="${#temporals.format(contract.starDate, 'HH:mm dd-MM-yyyy')}"></td>
+            </tr>
+            <tr>
+                <td>End date:</td>
+                <td th:text="${#temporals.format(contract.endDate, 'HH:mm dd-MM-yyyy')}"></td>
+            </tr>
+            <tr>
+                <td>Deposit:</td>
+                <td th:text="${contract.deposit}"></td>
+            </tr>
+            <tr>
+                <td>Total money:</td>
+                <td th:text="${contract.totalMoney}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+    </div>
+
+
+</body>
+</html>
