@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:insert="layout :: bootstrap_head">
+    <meta charset="UTF-8">
+    <title>Service list</title>
+</head>
+<body>
+
+<div th:insert="layout :: header"></div>
+
+<h2>Danh sách khuyến mãi</h2>
+
+<h2><a class="btn btn-primary" href="/create" role="button">Thêm mới khuyến mãi</a></h2>
+
+<p style="text-align: center; color: green" th:text="${msg}"></p>
+
+<form method="get" action="" class="inputSearch">
+    <span>Mức giảm giá: </span>
+    <input name="discount" th:value="${discount}" placeholder="Enter discount" onchange="this.form.submit()">
+    <span>Thời gian bắt đầu: </span>
+    <input type="date" name="startDate" th:value="${startDate}" onchange="this.form.submit()">
+    <span>Thời gian kết thúc: </span>
+    <input type="date" name="endDate" th:value="${endDate}" onchange="this.form.submit()">
+    <button type="submit" class="btn btn-primary">Search</button>
+
+</form>
+
+<table class="table table-hover" style="text-align: center">
+    <tr>
+        <th>Tiêu đề</th>
+        <th>Thời gian bắt đầu</th>
+        <th>Thời gian kết thúc</th>
+        <th>Mức giảm giá</th>
+        <th>Chi tiết</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="khuyenMai,loop : ${khuyenMais}">
+        <td th:text="${khuyenMai.title}"></td>
+        <td th:text="${#temporals.format(khuyenMai.startDate,'dd-MM-yyyy')}"></td>
+        <td th:text="${#temporals.format(khuyenMai.endDate,'dd-MM-yyyy')}"></td>
+        <td th:text="${khuyenMai.discountRate}"></td>
+        <td th:text="${khuyenMai.detail}"></td>
+        <td><a class="btn btn-warning" th:href="@{/edit/{id}(id = ${khuyenMai.id})}">Edit</a></td>
+        <td>
+            <button class="btn btn-danger" th:onclick="'javascript:modalDelete(\''+${khuyenMai.id}+'\')'">Delete
+            </button>
+        </td>
+
+        <div class="modal" id="modalId" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Xóa chương trình khuyến mãi</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 th:text="'Bạn có muốn xóa Chương trình khuyến mãi :' + ${khuyenMai.title} + ' không ?'"></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-danger deleteObj">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </tr>
+</table>
+
+<!--phân trang-->
+<!--<div style=" margin-left: 940px">-->
+<!--    <nav aria-label="...">-->
+<!--        <ul class="pagination">-->
+<!--            <li>-->
+<!--                <a th:if="${services.hasPrevious()}" class="page-item page-link"-->
+<!--                   th:href="@{/service/list(page=${services.number},nameSearch=${nameSearch},idRentTypeSearh=${idRentTypeSearh},idServiceTypeSearch=${idServiceTypeSearch})}"-->
+<!--                   tabindex="-1" aria-disabled="true">Previous</a>-->
+<!--                <a th:unless="${services.hasPrevious()}" class="page-item disabled page-link" tabindex="-1"-->
+<!--                   aria-disabled="true">Previous</a>-->
+<!--            </li>-->
+<!--            &lt;!&ndash;&ndash;&gt;-->
+<!--            <li th:each="pageNo : ${#numbers.sequence(1,services.totalPages)}" class="page-item">-->
+<!--                <a th:if="${pageNo != services.number +1 && pageNo != 0}" class="page-link" th:text="${pageNo}"-->
+<!--                   th:href="@{/service/list(page=${pageNo},nameSearch=${nameSearch},idRentTypeSearh=${idRentTypeSearh},idServiceTypeSearch=${idServiceTypeSearch})}"></a>-->
+<!--                <a th:if="${pageNo == services.number +1}" style="color: red" class="page-link"-->
+<!--                   th:text="${pageNo}"></a>-->
+<!--            </li>-->
+<!--            &lt;!&ndash;&ndash;&gt;-->
+<!--            <li>-->
+<!--                <a th:if="${services.hasNext()}" class="page-item page-link"-->
+<!--                   th:href="@{/service/list(page=${services.number+2},nameSearch=${nameSearch},idRentTypeSearh=${idRentTypeSearh},idServiceTypeSearch=${idServiceTypeSearch})}">-->
+<!--                    Next</a>-->
+<!--                <a th:unless="${services.hasNext()}" class="page-item disabled page-link">Next</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</div>-->
+
+<!--modal-->
+
+
+<div th:insert="layout :: footer"></div>
+
+<div th:insert="layout :: bootstrap_body"></div>
+
+<script>
+
+
+    function modalDelete(id) {
+        $("#modalId").modal("show");
+        $(".close").click(function () {
+            $('#modalId').modal('hide');
+        });
+        $('.deleteObj').click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/delete/"+id,
+                success: function () {
+                    window.location.reload();
+                }
+            })
+        })
+    }
+
+</script>
+
+</body>
+</html>

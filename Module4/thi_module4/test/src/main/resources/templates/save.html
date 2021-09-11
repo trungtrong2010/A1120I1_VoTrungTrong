@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:insert="layout :: bootstrap_head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div th:insert="layout :: header"></div>
+<h2>Save khuyenmai</h2>
+
+<p th:if="${msg!=null}" th:text="${msg}"></p>
+
+<form method="post" action="/save" style="margin-left: 40%">
+    <input type="hidden" th:field="${khuyenMai.id}">
+    <table>
+        <tr>
+            <td>Tiêu đề:</td>
+            <td><input th:field="${khuyenMai.title}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('khuyenMai.title')}" th:errors="${khuyenMai.title}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Thời gian bắt đầu:</td>
+            <td><input type="date" th:field="${khuyenMai.startDate}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('khuyenMai.startDate')}"
+                   th:errors="${khuyenMai.startDate}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Thời gian kết thúc:</td>
+            <td><input type="date" th:field="${khuyenMai.endDate}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('khuyenMai.endDate')}"
+                   th:errors="${khuyenMai.endDate}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Mức giảm giá:</td>
+            <td><input th:field="${khuyenMai.discountRate}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('khuyenMai.discountRate')}" th:errors="${khuyenMai.discountRate}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Chi tiết:</td>
+            <td><input type="text" th:field="${khuyenMai.detail}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('khuyenMai.detail')}" th:errors="${khuyenMai.detail}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <a href="/list" class="btn btn-light" role="button">Back</a>
+                <button class="btn btn-primary">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div th:insert="layout :: footer"></div>
+<div th:insert="layout :: bootstrap_body"></div>
+</body>
+</html>

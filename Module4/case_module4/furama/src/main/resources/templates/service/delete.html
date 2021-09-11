@@ -6,22 +6,32 @@
     <title>Delete</title>
 </head>
 <body>
-<form action="/service/delete" method="post">
+<div class="modal-header">
+    <h2 class="modal-title">Delete service</h2>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+<!--    <input type="hidden" th:field="${service.id}">-->
+    <h5 th:text="'Are you delete service name: ' + ${service.name} + ' ?'"></h5>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+    <button type="button" th:onclick="'javascript:deleteObj(\''+ ${service.id}+'\')'" class="btn btn-danger">Delete</button>
+</div>
 
-    <div class="modal-header">
-        <h2 class="modal-title">Delete service</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <input type="hidden" th:field="${service.id}">
-        <h5 th:text="'Are you delete service name: ' + ${service.name} + ' ?'"></h5>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </div>
-</form>
+<script>
+    function deleteObj(id) {
+        $.ajax({
+            type: "GET",
+            url: "/service/delete/"+id,
+            success: function () {
+                window.location.reload();
+            }
+        })
+    }
+</script>
+
 </body>
 </html>

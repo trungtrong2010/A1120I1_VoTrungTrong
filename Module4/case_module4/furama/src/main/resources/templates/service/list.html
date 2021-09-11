@@ -61,9 +61,12 @@
         <td th:text="${service.numberOfFloors}"></td>
         <td th:text="${service.rentType.name}"></td>
         <td th:text="${service.serviceType.name}"></td>
-        <td><button class="btn btn-primary" th:onclick="'javascript:showDetail(\''+${service.id} + '\')'">Detail</button></td>
         <td>
-<!--            <button class="btn btn-warning" th:onclick="'javascript:showEdit(\''+${service.id}+'\')'">Edit</button>-->
+            <button class="btn btn-primary" th:onclick="'javascript:showDetail(\''+${service.id} + '\')'">Detail
+            </button>
+        </td>
+        <td>
+            <!--            <button class="btn btn-warning" th:onclick="'javascript:showEdit(\''+${service.id}+'\')'">Edit</button>-->
             <a class="btn btn-warning" th:href="@{/service/edit/{id}(id = ${service.id})}">Edit</a>
         </td>
         <td>
@@ -128,13 +131,13 @@
         $(".btnModalDelete").click(function () {
             $.ajax({
                 type: "GET",
-                url: "/service/delete/" + $(this).next().val(),
+                url: "/service/formDelete/" + $(this).next().val(),
                 dataType: "HTML",
                 success: function (data) {
                     $(".modal-content").html(data);
                     $("#modalId").modal("show");
                     closeModal.call();
-                }
+                },
             })
         })
     })
@@ -179,7 +182,6 @@
     //         }
     //     })
     // }
-
 
 
 </script>

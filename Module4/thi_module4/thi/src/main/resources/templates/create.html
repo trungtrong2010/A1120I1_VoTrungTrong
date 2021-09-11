@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:insert="layout :: bootstrap_head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div th:insert="layout :: header"></div>
+<h2>Thêm mới giao dịch</h2>
+
+<form method="post" action="/save" style="margin-left: 40%">
+    <table>
+        <tr>
+            <td>Mã giao dịch:</td>
+            <td><input th:field="${giaoDich.id}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('giaoDich.id')}" th:errors="${giaoDich.id}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Tên khách hàng:</td>
+            <td>
+                <select th:field="${giaoDich.khachHang.id}">
+                    <option th:each="khachHang : ${khachHangs}"
+                            th:value="${khachHang.id}" th:text="${khachHang.name}"></option>
+                </select>
+            </td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('giaoDich.khachHang')}"
+                   th:errors="${giaoDich.khachHang}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Loại bất động sản:</td>
+            <td th:each="loaiDichVu : ${loaiDichVus}">
+                <input type="radio" th:field="${giaoDich.loaiGiaoDich}" th:value="${loaiDichVu.value}">
+                <label th:text="${loaiDichVu.value}"></label>
+            </td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('giaoDich.loaiGiaoDich')}"
+                   th:errors="${giaoDich.loaiGiaoDich}"></p></td>
+        </tr>
+
+        <tr>
+            <td>Ngày giao dịch:</td>
+            <td><input type="date" th:field="${giaoDich.ngayGiaoDich}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('giaoDich.ngayGiaoDich')}"
+                   th:errors="${giaoDich.ngayGiaoDich}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Đơn giá(VND):</td>
+            <td><input th:field="${giaoDich.donGia}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('giaoDich.donGia')}"
+                   th:errors="${giaoDich.donGia}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Diện tích(m2):</td>
+            <td><input th:field="${giaoDich.dienTich}"></td>
+            <td><p class="validColor" th:if="${#fields.hasErrors('giaoDich.dienTich')}"
+                   th:errors="${giaoDich.dienTich}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <a href="/list" class="btn btn-light" role="button">Quay lại</a>
+                <button class="btn btn-primary">Lưu</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div th:insert="layout :: footer"></div>
+<div th:insert="layout :: bootstrap_body"></div>
+</body>
+</html>

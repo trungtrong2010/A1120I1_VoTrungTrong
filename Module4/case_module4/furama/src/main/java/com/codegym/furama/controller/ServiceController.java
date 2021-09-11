@@ -51,17 +51,16 @@ public class ServiceController {
         return "service/detail";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/formDelete/{id}")
     public String formDelete(@PathVariable Integer id, Model model) {
         model.addAttribute("service", this.serviceService.findById(id));
         return "service/delete";
     }
 
-    @PostMapping("/delete")
-    public String delete(@ModelAttribute("id") Integer id, RedirectAttributes redirectAttributes) {
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
         Service service = this.serviceService.findById(id);
         this.serviceService.delete(service);
-        redirectAttributes.addFlashAttribute("msg", "Deleted service name: " + service.getName());
         return "redirect:/service/list";
     }
 
