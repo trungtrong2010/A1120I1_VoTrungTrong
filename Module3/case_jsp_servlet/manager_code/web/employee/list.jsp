@@ -102,40 +102,40 @@
             </tr>
         </c:forEach>
         <div>
-                    <c:if test="${listEmployeeFindByName!=null}">
-                        <c:forEach items="${listEmployeeFindByName}" var="employee">
-                            <tr>
-                                <td>${employee.getId()}</td>
-                                <td>${employee.getName()}</td>
-                                <td>${employee.getDivition().getName()}</td>
-                                <td>${employee.getBirthday()}</td>
-                                <td>${employee.getPhone()}</td>
-                                <td>${employee.getEmail()}</td>
-                                <td>${employee.getAddress()}</td>
-                                <td>
-                                    <a class="btn btn-primary" id="show" href="" data-toggle="modal"
-                                       data-target="#modelShow"
-                                       onclick="Value('${employee.getId()}','${employee.getName()}','${employee.getBirthday()}',
-                                               '${employee.getIdCard()}','${employee.getSalary()}','${employee.getPhone()}','${employee.getEmail()}',
-                                               '${employee.getAddress()}','${employee.getPosition().getName()}',
-                                               '${employee.getEducationDegree().getName()}','${employee.getDivition().getName()}',
-                                               '${employee.getUser().getUsername()}','${employee.getUser().getPassword()}')">Show</a>
-                                </td>
-                                <td>
-                                    <a href="/employee?action=edit&id=${employee.getId()}">
-                                        <button class="btn btn-warning">Edit</button>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger" href="#" role="button" data-toggle="modal"
-                                       data-target="#modelDelete"
-                                       onClick="onDelete('${employee.getId()}');nameDelete('${employee.getName()}')">
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </c:if>
+            <c:if test="${listEmployeeFindByName!=null}">
+                <c:forEach items="${listEmployeeFindByName}" var="employee">
+                    <tr>
+                        <td>${employee.getId()}</td>
+                        <td>${employee.getName()}</td>
+                        <td>${employee.getDivition().getName()}</td>
+                        <td>${employee.getBirthday()}</td>
+                        <td>${employee.getPhone()}</td>
+                        <td>${employee.getEmail()}</td>
+                        <td>${employee.getAddress()}</td>
+                        <td>
+                            <a class="btn btn-primary" id="show" href="" data-toggle="modal"
+                               data-target="#modelShow"
+                               onclick="Value('${employee.getId()}','${employee.getName()}','${employee.getBirthday()}',
+                                       '${employee.getIdCard()}','${employee.getSalary()}','${employee.getPhone()}','${employee.getEmail()}',
+                                       '${employee.getAddress()}','${employee.getPosition().getName()}',
+                                       '${employee.getEducationDegree().getName()}','${employee.getDivition().getName()}',
+                                       '${employee.getUser().getUsername()}','${employee.getUser().getPassword()}')">Show</a>
+                        </td>
+                        <td>
+                            <a href="/employee?action=edit&id=${employee.getId()}">
+                                <button class="btn btn-warning">Edit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="#" role="button" data-toggle="modal"
+                               data-target="#modelDelete"
+                               onClick="onDelete('${employee.getId()}');nameDelete('${employee.getName()}')">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:if>
         </div>
         </tbody>
     </table>
@@ -222,24 +222,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Xác nhận xóa khách hàng</h5>
+                <h5 class="modal-title"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/employee">
-                <input type="hidden" name="id" id="idEmployee">
-                <input type="hidden" name="action" value="delete">
-                <div class="modal-body">
-                    <p id="body"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        Cancel
-                    </button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <p id="body"></p>
+            </div>
+            <div class="modal-footer">
+<%--                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>--%>
+<%--                <button type="submit" class="btn btn-danger">Delete</button>--%>
+            </div>
         </div>
     </div>
 </div>

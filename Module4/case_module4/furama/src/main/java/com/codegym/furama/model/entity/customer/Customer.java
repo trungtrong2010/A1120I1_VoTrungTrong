@@ -32,7 +32,7 @@ public class Customer implements Validator {
 
     private String phone;
 
-    @Email(message = "Wrong format email")
+//    @Email(message = "Wrong format email")
     @NotEmpty(message = "Not empty")
     private String email;
 
@@ -142,11 +142,14 @@ public class Customer implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Customer customer = (Customer) target;
-        if (!customer.phone.matches("(090||091)+[0-9]{7}+")) {
+        if (!customer.getPhone().matches("(090||091)+[0-9]{7}+")) {
             errors.rejectValue("phone",null,"Format error: 090/091 xxxx xxx");
         }
         if (!customer.idCard.matches("[0-9]{9,10}")) {
             errors.rejectValue("idCard",null,"Format error: 9/10 number");
+        }
+        if (customer.name.equals(customer.email)) {
+            errors.rejectValue("email",null,"Không được trùng với trường name !!!");
         }
     }
 }

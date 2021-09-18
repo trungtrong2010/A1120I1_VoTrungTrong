@@ -1,0 +1,22 @@
+// Connect DB
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/product_management?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=trong01685072315
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+// đổi port
+server.port=9090
+
+// Library VALIDATION
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.2'
+
+
+// thymeleaf
+
+<html xmlns:th="http://www.thymeleaf.org">

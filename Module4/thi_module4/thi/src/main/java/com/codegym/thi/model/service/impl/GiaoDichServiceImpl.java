@@ -35,6 +35,9 @@ public class GiaoDichServiceImpl implements IGiaoDichService{
 
     @Override
     public List<GiaoDich> findSearch(String name, String loaidv) {
+        if (loaidv.equals("")) {
+            loaidv = null;
+        }
         return this.giaoDichRepository.findSearch(name, loaidv);
     }
 }

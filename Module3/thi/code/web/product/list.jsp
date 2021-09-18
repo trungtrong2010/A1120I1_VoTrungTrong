@@ -125,29 +125,14 @@
     </table>
 </div>
 
-<div class="modal fade" id="modelDelete" tabindex="-1" role="dialog"
+<div class="modal fade" id="model" tabindex="-1" role="dialog"
      aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Xác nhận xóa khách hàng</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
             </div>
-            <form action="/product">
-                <input type="hidden" name="id" id="idProduct">
-                <input type="hidden" name="action" value="delete">
-                <div class="modal-body">
-                    <p id="body"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        Cancel
-                    </button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>

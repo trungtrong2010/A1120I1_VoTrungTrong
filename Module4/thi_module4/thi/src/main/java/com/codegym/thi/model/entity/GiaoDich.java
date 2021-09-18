@@ -1,6 +1,9 @@
 package com.codegym.thi.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -8,8 +11,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
+@Service
 @Entity
-public class GiaoDich {
+public class GiaoDich implements Validator {
 
     @Id
     private int id;
@@ -91,5 +95,18 @@ public class GiaoDich {
 
     public void setKhachHang(KhachHang khachHang) {
         this.khachHang = khachHang;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        GiaoDich giaoDich = (GiaoDich) target;
+        if (giaoDich.getDonGia() == giaoDich.getDienTich()) {
+            errors.rejectValue("donGia",null,"không được bằng nhau");
+        }
     }
 }
