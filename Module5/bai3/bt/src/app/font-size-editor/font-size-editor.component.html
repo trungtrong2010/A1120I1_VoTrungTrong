@@ -1,0 +1,9 @@
+<h2 style="color: red">Font size  editor</h2>
+<div>
+  <label>Enter font size (px): </label>
+  <input type="range" min="12" max="50" (change)="setFontSize($event)">
+</div>
+
+<p style="font-size: {{x}}px">Ok!!! font-size edited</p>
+
+<button class="btn btn-dark">OKE</button>

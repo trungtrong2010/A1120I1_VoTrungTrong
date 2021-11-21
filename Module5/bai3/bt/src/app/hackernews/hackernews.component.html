@@ -1,0 +1,13 @@
+<h2 style="color: red">Hackernews</h2>
+
+<h2>Today's article</h2>
+<hr>
+<div>
+  <a href="{{article.url}}" target="_blank">{{article.title}}</a>
+</div>
+<hr>
+
+<textarea [value]="article.title" cols="30" id="article-title"></textarea>
+<textarea [value]="article.url" cols="80" id="article-url"></textarea>
+<!--<input (click)="updateC()">-->
+

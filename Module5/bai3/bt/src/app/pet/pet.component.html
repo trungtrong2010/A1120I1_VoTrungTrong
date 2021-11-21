@@ -1,0 +1,10 @@
+<h2 style="color: red">Pet frofile</h2>
+<div>
+  <label>Name: <input type="text" (change)="setName($event)"></label>
+  <label>Image: <input type="url" (change)="setImage($event)"></label>
+</div>
+
+<div>
+  <h3>Pet name: {{pet.name}}</h3>
+  <img [src]="pet.image" style="max-width: 20%">
+</div>
