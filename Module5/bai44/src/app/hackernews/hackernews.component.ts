@@ -7,8 +7,8 @@ import {IArticle} from "../models/article";
   templateUrl: './hackernews.component.html',
   styleUrls: ['./hackernews.component.css']
 })
-export class HackernewsComponent implements OnInit {
 
+export class HackernewsComponent implements OnInit {
 
   articles = articleDao;
   stt : number | undefined;
@@ -22,7 +22,7 @@ export class HackernewsComponent implements OnInit {
 
   varibleTitle($event: Event) {
     // @ts-ignore
-    return event.target.value;
+    this.title = event.target.value;
   }
 
   varibleUrl($event: Event) {
