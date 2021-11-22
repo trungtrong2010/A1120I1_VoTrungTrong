@@ -1,0 +1,10 @@
+<h2 style="color: red">Hackernews</h2>
+
+<textarea cols="30" (change)="varibleTitle($event)"></textarea>
+<textarea cols="70" (change)="varibleUrl($event)"></textarea>
+<button (click)="addArticle()">Add</button>
+
+<div *ngFor="let article of articles">
+  <a href="{{article.url}}" target="_blank">{{article.stt}}.{{article.title}} </a>
+  <app-likes></app-likes>
+</div>
