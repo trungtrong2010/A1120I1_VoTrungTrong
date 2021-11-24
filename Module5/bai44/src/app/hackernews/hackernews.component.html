@@ -2,7 +2,20 @@
 <textarea cols="70" (change)="varibleUrl($event)"></textarea>
 <button (click)="addArticle()">Add</button>
 
-<div *ngFor="let article of articles">
-  <a href="{{article.url}}" target="_blank">{{article.stt}}.{{article.title}} </a>
-  <app-likes></app-likes>
-</div>
+<table class="table table-hover">
+  <tr>
+    <th>Stt</th>
+    <th>Title</th>
+    <th>Like</th>
+    <th>Detail</th>
+  </tr>
+  <tr *ngFor="let article of articles">
+    <td>{{article.stt}}</td>
+    <td><a href="{{article.url}}" target="_blank">{{article.title}}</a></td>
+    <td><app-likes></app-likes></td>
+    <td><button class="btn btn-success" (click)="getArticle(article)" >Detail</button></td>
+  </tr>
+</table>
+
+<app-detail-hackernews [detailHackernew]="article"></app-detail-hackernews>
+

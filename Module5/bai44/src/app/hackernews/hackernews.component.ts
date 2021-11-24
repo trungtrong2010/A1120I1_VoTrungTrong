@@ -14,6 +14,7 @@ export class HackernewsComponent implements OnInit {
   stt : number | undefined;
   title : string | undefined;
   url : string | undefined;
+  article = {};
 
   constructor() { }
 
@@ -38,5 +39,9 @@ export class HackernewsComponent implements OnInit {
         url: this.url
       }
     )
+  }
+
+  getArticle(article: IArticle) {
+    this.article = article;
   }
 }

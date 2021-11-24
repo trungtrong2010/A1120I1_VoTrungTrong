@@ -7,6 +7,7 @@ import { HackernewsComponent } from './hackernews/hackernews.component';
 import { LikesComponent } from './likes/likes.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { DetailHackernewsComponent } from './detail-hackernews/detail-hackernews.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
     LikesComponent,
     NavbarComponent,
     FooterComponent,
+    DetailHackernewsComponent,
   ],
   imports: [
     BrowserModule,

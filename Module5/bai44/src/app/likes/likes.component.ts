@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-likes',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LikesComponent implements OnInit {
 
-  likes: number = 0;
+  @Input() likes: number = 0;
+
   likeThis() {
     this.likes++;
   }
