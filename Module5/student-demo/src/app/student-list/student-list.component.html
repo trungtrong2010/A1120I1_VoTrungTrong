@@ -1,0 +1,31 @@
+<h3>Student list</h3>
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Mark</th>
+    <th>Result</th>
+    <th>Avatar</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of studens">
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.age}}</td>
+    <td>{{student.mark}}</td>
+    <td *ngIf="student.mark >=5" class="text-success">PASS</td>
+    <td *ngIf="student.mark <5" class="text-danger">FAIL</td>
+    <td><img [src]="student.avatar"></td>
+    <td>
+      <button class="btn btn-success" (click)="getStudent(student)">Detail</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<app-student-information [studentDetail]="detailStudent"></app-student-information>

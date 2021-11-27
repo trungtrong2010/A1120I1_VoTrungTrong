@@ -1,0 +1,66 @@
+<h3>Create account</h3>
+<div class="col-6">
+  <form [formGroup]="account" (submit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Email: </label>
+      <input formControlName="email" class="form-control" type="email">
+
+      <div *ngIf="account.get('email')!.hasError('required')
+       && account.get('email')!.touched" style="color: red">
+        Không được để trống !!!
+      </div>
+
+      <div *ngIf="account.get('email')!.hasError('email')
+       && account.get('email')!.touched" style="color: red">
+        Định dạng email sai !!!
+      </div>
+    </div>
+
+
+    <div formGroupName="checkPassword">
+      <div class="form-group">
+        <label>Password: </label>
+        <input formControlName="password" class="form-control" type="password">
+        <div *ngIf="account.get('checkPassword')!.get('password')!.hasError('request')
+       && account.get('checkPassword')!.get('password')!.dirty" style="color: red">
+          Not found !!!
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Confirm password: </label>
+        <input formControlName="confirmPassword" class="form-control">
+        <div *ngIf="account.get('checkPassword')!.get('confirmPassword')!.invalid
+       && account.get('checkPassword')!.get('confirmPassword')!.dirty" style="color: red">
+          !!!
+        </div>
+      </div>
+      <div *ngIf="account.controls['checkPassword'].hasError('passwordnotmatch') &&
+account.get('checkPassword')!.get('confirmPassword')!.dirty" style="color: red">Mật khẩu không khớp !!! </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+      <label>Country: </label>
+      <input formControlName="country" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Age: </label>
+      <input formControlName="age" class="form-control" type="date">
+    </div>
+    <div class="form-group">
+      <label>Gender: </label>
+      <input formControlName="gender" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Phone: </label>
+      <input formControlName="phone" class="form-control" type="text">
+    </div>
+
+    <button class="btn btn-success">Sign-in</button>
+  </form>
+</div>
+
