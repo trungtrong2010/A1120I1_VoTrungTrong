@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AccountsDao} from "../dao/accountsDao";
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AccountsDao} from '../dao/AccountsDao';
 
 
 @Component({
@@ -10,50 +10,46 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
 })
 export class RegisterFinalComponent implements OnInit {
 
-  accountsDaos = new Array<AccountsDao>()
+  accountsDaos = AccountsDao;
+  isSubmit = false;
+
+  // phonePattern = '(090||+84)+[0-9]{7}+';
 
   constructor() {
 
   }
+
   account = new FormGroup({
-    email: new FormControl('', [Validators.required,Validators.email]),
-    checkPassword : new FormGroup({
-      password: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    checkPassword: new FormGroup({
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       confirmPassword: new FormControl('')
     }, this.comparePassword),
-    // password: new FormControl('', Validators.required),
     country: new FormControl('', Validators.required),
-    age: new FormControl('', Validators.required),
+    age: new FormControl('', [Validators.required, Validators.min(18)]),
     gender: new FormControl('', Validators.required),
-    phone: new FormControl('+84', Validators.required)
-  })
+    phone: new FormControl('', [Validators.required, Validators.pattern(/^(\+84|\+94)\d{9,10}$/)])
+  });
 
   ngOnInit(): void {
 
   }
 
   onSubmit() {
-    // this.accountsDaos.push(this.account.value)
+    if (!this.account.invalid) {
+      this.accountsDaos.push(this.account.value);
+      this.isSubmit = false;
+    } else {
+      this.isSubmit = true;
+    }
+    console.log(this.accountsDaos);
   }
-  comparePassword(c: AbstractControl){
-    console.log("12121")
+
+  comparePassword(c: AbstractControl) {
     const v = c.value;
     return (v.password === v.confirmPassword) ?
       null : {
-        passwordnotmatch: true // name error
-      }
+        passwordnotmatch: true
+      };
   }
 }
-
-
-// function ConfirmedValidator(arg0: string, arg1: string): any {
-//     return (formGroup: FormGroup) => {
-//       const control = formGroup.controls[arg0];
-//       const control1 = formGroup.controls[arg1];
-//       if (control1.errors && !control1.errors.confirmedValidator) return;
-//       if (control.value !== control1.value) {
-//         control1.setErrors({confirmedValidator: true})
-//       }else control1.setErrors(null);
-//     }
-// }
-

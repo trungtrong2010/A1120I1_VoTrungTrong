@@ -1,8 +1,8 @@
-export interface AccountsDao {
+export interface IAccount {
   email: string;
   password: string;
   country: string;
-  age : number;
+  age: number;
   gender: string;
   phone: string;
 }
