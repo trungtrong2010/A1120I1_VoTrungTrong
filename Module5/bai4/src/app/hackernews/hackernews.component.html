@@ -1,0 +1,8 @@
+<h2 style="color: red">Hackernews</h2>
+<!--<textarea [(ngModel)]="article.title" cols="30"></textarea>-->
+<!--<textarea [(ngModel)]="article.url" cols="70"></textarea>-->
+<!--<button (click)="updateArticle()">Update</button>-->
+
+<div *ngFor="let article of articles">
+  <a href="{{article.url}}" target="_blank">{{article.title}}</a>
+</div>

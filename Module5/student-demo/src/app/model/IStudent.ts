@@ -3,5 +3,5 @@ export interface IStudent {
   name: string;
   age: number;
   mark: number;
-  avatar: string
+  avatar: string;
 }

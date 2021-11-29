@@ -15,9 +15,13 @@ export class DetailHackernewsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setUrl($event: Event) {
+  setUrl() {
     // @ts-ignore
-    this.detailHackernew.url.emit($event.target.value)
+    console.log(document.getElementById("setUrl").value)
+    // @ts-ignore
+    this.detailHackernew.url = document.getElementById("setUrl").value
     console.log(this.detailHackernew.url)
+    // @ts-ignore
+    // console.log($event.target.value)
   }
 }

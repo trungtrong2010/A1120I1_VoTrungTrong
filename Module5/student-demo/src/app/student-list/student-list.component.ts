@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {StudentDao} from '../dao/StudentDao';
 import {IStudent} from '../model/IStudent';
+import {StudentService} from '../service/student.service';
+import {MatDialog} from '@angular/material/dialog';
+import {StudentInformationComponent} from '../student-information/student-information.component';
 
 @Component({
   selector: 'app-student-list',
@@ -9,16 +11,19 @@ import {IStudent} from '../model/IStudent';
 })
 export class StudentListComponent implements OnInit {
 
-  studens = StudentDao;
-  detailStudent: IStudent;
+  students: IStudent[];
 
-  constructor() {
+  constructor(public dialog: MatDialog, private studentService: StudentService) {
   }
 
   ngOnInit(): void {
+    this.students = this.studentService.getAllStudent();
   }
 
-  getStudent(student: IStudent) {
-    this.detailStudent = student;
+ openDialogDetail(student: IStudent) {
+    const dialog = this.dialog.open(StudentInformationComponent, {
+      width: '500px',
+      data: student
+    });
   }
 }

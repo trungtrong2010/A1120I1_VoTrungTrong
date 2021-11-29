@@ -1,10 +1,14 @@
-<div class="" *ngIf="studentDetail">
-  <h3>Student information</h3>
-  <p>Id: <label>{{studentDetail.id}}</label></p>
-  <p>Name: <label>{{studentDetail.name}}</label></p>
-  <p>Age: <label>{{studentDetail.age}}</label></p>
-  <p>Mark: <label>{{studentDetail.mark}}</label></p>
-  <p>Avatar: <img [src]="studentDetail.avatar"></p>
-  <label>Edit mark: <input value="{{studentDetail.mark}}" (change)="setMark($event)" type="number"></label>
-</div>
+<h1 mat-dialog-title>Student information</h1>
 
+<mat-dialog-content>
+  <p><label>Id: </label> {{student.id}}</p>
+  <p><label>Name: </label> {{student.name}}</p>
+  <p><label>Age: </label> {{student.age}}</p>
+  <p><label>Mark: </label> {{student.mark}}</p>
+  <p><label>Avatar: </label> <img [src]="student.avatar"></p>
+  <label>Edit mark: <input value="{{student.mark}}" (change)="setMark($event)" type="number"></label>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

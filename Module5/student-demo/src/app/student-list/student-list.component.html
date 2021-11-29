@@ -1,5 +1,5 @@
 <h3>Student list</h3>
-
+<a class="btn btn-success" [routerLink]="['/create']">Create customer</a>
 <table class="table table-striped table-hover">
   <thead>
   <tr>
@@ -13,7 +13,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let student of studens">
+  <tr *ngFor="let student of students">
     <td>{{student.id}}</td>
     <td>{{student.name}}</td>
     <td>{{student.age}}</td>
@@ -22,10 +22,12 @@
     <td *ngIf="student.mark <5" class="text-danger">FAIL</td>
     <td><img [src]="student.avatar"></td>
     <td>
-      <button class="btn btn-success" (click)="getStudent(student)">Detail</button>
+      <button class="btn btn-success" (click)="openDialogDetail(student)">Detail</button>
+<!--      <button class="btn btn-success" (click)="openDialogDetail(customer)">Detail</button>-->
+      <button class="btn btn-warning" [routerLink]="['/update', student.id]" style="margin-left: 10px">Edit</button>
+<!--      <button class="btn btn-danger" (click)="openDialogDelete(customer)" style="margin-left: 10px">Delete</button>-->
     </td>
   </tr>
   </tbody>
 </table>
 
-<app-student-information [studentDetail]="detailStudent"></app-student-information>

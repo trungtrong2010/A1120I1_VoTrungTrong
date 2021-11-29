@@ -1,10 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-$END$
+<div style="text-align: center">
+    <h2>Danh sách khuyến mãi</h2>
+    <a href="/create">
+        <button class="btn btn-primary">Thêm khuyến mãi</button>
+    </a>
+    <br>
+</div>
+
+<form action="/search" method="get">
+    <div class="row">
+        <div class="col-1">Start date:</div>
+        <div class="col-2"><input type="date" name="startDateSearch" th:value="${startDateSearch}"></div>
+        <div class="col-1">End date:</div>
+        <div class="col-2"><input type="date" name="endDateSearch" th:value="${endDateSearch}"></div>
+        <div class="col-1">Mức giảm giá:</div>
+        <div class="col-2"><input type="text" name="detailSearch" th:value="${detailSearch}"></div>
+        <div class="col-1">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-hover">
+    <thead>
+    <tr style="background: #ffdf7e">
+        <th>Tiêu đề</th>
+        <th>thời gian bắt đầu</th>
+        <th>Thời gian kết thúc</th>
+        <th>Mức giảm giá</th>
+        <th>Chi tiết</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="promotion : ${promotions}">
+        <td th:text="${promotion.title}"></td>
+        <td th:text="${#temporals.format(promotion.startDate,'dd-MM-yyyy HH:mm:ss')}"></td>
+        <td th:text="${#temporals.format(promotion.endDate,'dd-MM-yyyy HH:mm:ss')}"></td>
+        <td th:text="${promotion.discount}"></td>
+        <td th:text="${promotion.detail}"></td>
+        <td><a th:href="@{/{id}/edit(id = ${promotion.id})}"><i class="fa fa-edit"></i></a></td>
+        <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                    th:onclick="'javascript:modalDelete(\''+${promotion.id}+'\')'">
+                <i class="fa fa-trash"></i></button>
+        </td>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete promotion</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        Bạn muốn xóa <span th:text="${promotion.title}">?</span>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn badge-light" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger deleteObj">OK</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function modalDelete(id) {
+        // $("#myModal").modal("show");
+        $('.deleteObj').click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/delete/" + id,
+                success: function () {
+                    window.location.href = "/list";
+                }
+            })
+        });
+
+    }
+</script>
+
 </body>
+</html>
 </html>

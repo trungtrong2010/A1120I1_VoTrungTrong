@@ -23,6 +23,7 @@ public class GiaoDichController {
         loaiDichVu.put(1, "Nhà đất");
         loaiDichVu.put(2, "Đất");
     }
+    
 
     @Autowired
     private IKhachHangRepository khachHangRepository;

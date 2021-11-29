@@ -1,27 +1,27 @@
-import {TypeCustomer} from "../../model/customer/TypeCustomer";
+import {TypeCustomer} from '../../model/customer/TypeCustomer';
 
 export let TypeCustomerDao: TypeCustomer[] = [
   {
     id: 1,
-    name: "Diamond"
+    name: 'Diamond'
   },
   {
     id: 2,
-    name: "Platinium"
+    name: 'Platinium'
   },
   {
     id: 3,
-    name: "Gold"
+    name: 'Gold'
   },
 
 {
     id: 4,
-    name: "Silver"
+    name: 'Silver'
   },
 
 {
     id: 5,
-    name: "Member"
+    name: 'Member'
   },
 
-]
+];

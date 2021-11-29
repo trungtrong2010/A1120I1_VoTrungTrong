@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {IStudent} from '../model/IStudent';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-student-information',
@@ -10,7 +11,8 @@ export class StudentInformationComponent implements OnInit {
 
   @Input() studentDetail: IStudent;
 
-  constructor() {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public student: IStudent) {
 
   }
 
@@ -18,7 +20,6 @@ export class StudentInformationComponent implements OnInit {
   }
 
   setMark($event: any) {
-    // console.log($event.target.value);
     this.studentDetail.mark = $event.target.value;
   }
 }

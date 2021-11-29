@@ -1,10 +1,12 @@
-<h3>Create customer</h3>
+<h3 *ngIf="!customerEdit">Create customer</h3>
+<h3 *ngIf="customerEdit">Edit customer</h3>
 
 <div class="row">
   <div class="col-3"></div>
 
 
   <form class="col-6" [formGroup]="customerForm" (submit)="onSubmit()">
+    <input formControlName="id"  [value]="customerForm.value.id">
     <label>Name: </label>
     <input formControlName="name" class="form-control" type="text">
     <div *ngIf="(customerForm.get('name')?.hasError('required')
@@ -64,7 +66,6 @@
     <div *ngIf="isSubmit" style="color: red; text-align: center">Unqualified !!!</div>
 
   </form>
-
 
   <div class="col-3"></div>
 </div>

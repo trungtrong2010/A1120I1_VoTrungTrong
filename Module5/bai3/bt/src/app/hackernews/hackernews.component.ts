@@ -18,4 +18,14 @@ export class HackernewsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // updateArticle() {
+  //   console.log("1");
+  //   // @ts-ignore
+  //   this.article.title = document.getElementById("article-title").value;
+  //   console.log(this.article.title);
+  //   // @ts-ignore
+  //   this.article.url = document.getElementById("article-url").value;
+  //   console.log(this.article.url);
+
+  // }
 }

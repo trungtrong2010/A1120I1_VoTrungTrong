@@ -1,10 +1,25 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head>
+<head th:insert="layout :: bootstrap_head">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title></title>
 </head>
 <body>
-$END$
+
+<div th:insert="layout :: header"></div>
+
+<h2>Thêm giao dịch mới</h2>
+
+<form action="/save" method="post">
+    <table>
+        <tr>
+            <td>Mã giao dịch: </td>
+
+        </tr>
+    </table>
+</form>
+
 </body>
+</html>
 </html>

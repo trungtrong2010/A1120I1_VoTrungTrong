@@ -1,4 +1,5 @@
 <h3>Create student</h3>
+<p><a class="btn btn-dark" [routerLink]="['/']">Back to student list</a></p>
 <div class="row">
   <div class="col-3"></div>
 
@@ -23,7 +24,7 @@
     </div>
 
     <label>Avatar: </label>
-    <input formControlName="avatar" class="form-control" type="number">
+    <input formControlName="avatar" class="form-control" type="url">
 
     <br>
     <button class="btn btn-success form-control">Submit</button>

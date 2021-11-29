@@ -21,9 +21,15 @@
     <td>{{customer.email}}</td>
     <td>{{customer.address}}</td>
     <td>
-      <button class="btn btn-warning">Edit</button>
-      <button class="btn btn-danger" style="margin-left: 10px">Delete</button>
+      <!--      <button mat-button (click)="openDialog()"> Mở hộp thoại</button>-->
+      <button class="btn btn-success" (click)="openDialogDetail(customer)">Detail</button>
+      <button class="btn btn-warning" (click)="editCustomer(customer)" style="margin-left: 10px">Edit</button>
+      <button class="btn btn-danger" (click)="openDialogDelete(customer)" style="margin-left: 10px">Delete</button>
     </td>
   </tr>
   </tbody>
 </table>
+
+<app-create-customer [customerEdit]="customerEdit"></app-create-customer>
+
+
