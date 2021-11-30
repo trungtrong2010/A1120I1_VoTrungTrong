@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IStudent} from '../model/IStudent';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {StudentDao} from '../dao/StudentDao';
+import {StudentService} from '../service/student.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-student-create',
@@ -19,16 +21,17 @@ export class StudentCreateComponent implements OnInit {
     mark: new FormControl('', Validators.required),
     avatar: new FormControl('')
   });
-  constructor() { }
+
+  constructor(private studentService: StudentService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    if (!this.studentForm.invalid) {
-      this.studentForm.get('id').reset(StudentDao.length + 1);
-      StudentDao.push(this.studentForm.value);
-      this.isSubmit = false;
+    if (this.studentForm.valid) {
+      this.studentService.addStudent(this.studentForm.value);
+      this.router.navigateByUrl('/');
     } else {
       this.isSubmit = true;
     }

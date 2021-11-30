@@ -14,7 +14,14 @@ export class StudentService {
   }
 
   addStudent(student: IStudent) {
+    student.id = this.students.length + 1;
     this.students.push(student);
+  }
+
+  removeStudent(student: IStudent) {
+    // remove student in students
+    // filter tạo ra mảng mới không có student muốn xóa ==> gán lại cho this.students
+  return this.students = this.students.filter(item => item !== student);
   }
 
   getById(id: number) {

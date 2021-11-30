@@ -6,7 +6,7 @@
   <form class="col-6" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
 
     <label>Name: </label>
-    <input formControlName="name" class="form-control" type="text">
+    <input formControlName="name" class="form-control" type="name">
     <div *ngIf="studentForm.get('name').hasError('required') && studentForm.get('name').touched"
          class="show-error">Not null !!!
     </div>
@@ -18,7 +18,7 @@
     </div>
 
     <label>Mark: </label>
-    <input formControlName="mark" class="form-control" type="text">
+    <input formControlName="mark" class="form-control" type="number">
     <div *ngIf="studentForm.get('mark').hasError('required') && studentForm.get('mark').touched"
          class="show-error">Not null !!!
     </div>

@@ -1,0 +1,11 @@
+h1{
+  text-align: center;
+  color: red;
+  font-weight: 900;
+}
+ul{
+  margin-left: 10%;
+}
+mat-label{
+  font-weight: 700;
+}

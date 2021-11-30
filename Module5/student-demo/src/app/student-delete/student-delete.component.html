@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Do want to you delete?</h1>
+
+<mat-dialog-content>
+  <ul>
+    <li><mat-label>Id: </mat-label>{{student.id}}</li>
+    <li><mat-label>Name: </mat-label>{{student.name}}</li>
+  </ul>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true" >Delete</button>
+</mat-dialog-actions>
