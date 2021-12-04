@@ -15,7 +15,7 @@ export class StudentCreateComponent implements OnInit {
   isSubmit = false;
 
   studentForm = new FormGroup({
-    id: new FormControl(),
+    id: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
     age: new FormControl('', Validators.required),
     mark: new FormControl('', Validators.required),
@@ -29,8 +29,9 @@ export class StudentCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.studentForm.value);
     if (this.studentForm.valid) {
-      this.studentService.addStudent(this.studentForm.value);
+      this.studentService.addStudent(this.studentForm.value).subscribe();
       this.router.navigateByUrl('/');
     } else {
       this.isSubmit = true;

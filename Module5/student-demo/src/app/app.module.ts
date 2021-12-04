@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StudentUpdateComponent } from './student-update/student-update.component';
 import { StudentDeleteComponent } from './student-delete/student-delete.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,15 +27,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     StudentUpdateComponent,
     StudentDeleteComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatFormFieldModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    HttpClientModule
+  ],
   providers: [StudentService],
   bootstrap: [AppComponent]
 })

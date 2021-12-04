@@ -4,6 +4,11 @@
   <div class="col-3"></div>
 
   <form class="col-6" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <label>Id: </label>
+    <input formControlName="id" class="form-control" type="number">
+    <div *ngIf="studentForm.get('id').hasError('required') && studentForm.get('id').touched"
+         class="show-error">Not null !!!
+    </div>
 
     <label>Name: </label>
     <input formControlName="name" class="form-control" type="name">

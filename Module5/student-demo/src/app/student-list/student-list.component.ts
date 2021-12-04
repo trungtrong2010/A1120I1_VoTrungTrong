@@ -18,7 +18,11 @@ export class StudentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.students = this.studentService.getAllStudent();
+    this.studentService.getAllStudent().subscribe(
+      (data) => this.students = data,
+      // (error => console.log('Error connect data')),
+      // (() => console.log('Oke connect to backend'))
+    );
   }
 
   openDialogDetail(student: IStudent) {
@@ -27,6 +31,7 @@ export class StudentListComponent implements OnInit {
       data: student
     });
   }
+
   openDialogDelete(student: IStudent) {
     const dialog = this.dialog.open(StudentDeleteComponent, {
       width: '20%',
@@ -35,7 +40,9 @@ export class StudentListComponent implements OnInit {
     // click button delete ==> check = true
     dialog.afterClosed().subscribe(check => {
       if (check) {
-        this.students = this.studentService.removeStudent(student);
+        console.log(student);
+        this.studentService.removeStudent(student).subscribe();
+        this.ngOnInit();
       }
     });
   }

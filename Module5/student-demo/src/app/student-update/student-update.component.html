@@ -1,10 +1,13 @@
 <h3>Update student</h3>
+<p><a class="btn btn-dark" [routerLink]="['/']">Back to student list</a></p>
 <div class="row">
   <div class="col-3"></div>
 
   <form class="col-6" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <input formControlName="id">
+    <br>
     <label>Name: </label>
-    <input formControlName="name" class="form-control" type="text" [value]="student.name">
+    <input formControlName="name" class="form-control" type="text" >
     <div *ngIf="studentForm.get('name').hasError('required') && studentForm.get('name').touched"
          class="show-error">Not null !!!
     </div>
@@ -29,4 +32,8 @@
     <div *ngIf="isSubmit" class="show-error">Unqualified !!!</div>
   </form>
 </div>
+<h3>Student Value</h3>
+{{student |json}}
+<h3>Form Value form</h3>
+{{studentForm.value |json}}
 
