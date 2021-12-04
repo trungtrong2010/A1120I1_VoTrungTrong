@@ -1,7 +1,16 @@
-h3{
+h3 {
   text-align: center;
   color: blue;
 }
-table{
+
+table, .form-search {
   text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.page-pipe {
+  margin-left: 70%;
 }

@@ -1,5 +1,14 @@
 <h3>List customer</h3>
 
+<p>
+  <button class="btn btn-success" [routerLink]="['/create']">Create customer</button>
+</p>
+<div class="form-search">
+  <label>Search name: </label>
+  <input type="text" #element>
+  <button mat-button	 (click)="searchName(element.value)">Search</button>
+  <button mat-raised-button (click)="sortName()">Sort name</button>
+</div>
 <table class="table table-striped table-hover">
   <thead>
   <tr>
@@ -13,7 +22,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let customer of customers">
+  <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 3, currentPage: p }">
     <td>{{customer.name}}</td>
     <td>{{customer.typeCustomer.name}}</td>
     <td>{{customer.dayOfBirthday}}</td>
@@ -23,13 +32,15 @@
     <td>
       <!--      <button mat-button (click)="openDialog()"> Mở hộp thoại</button>-->
       <button class="btn btn-success" (click)="openDialogDetail(customer)">Detail</button>
-      <button class="btn btn-warning" (click)="editCustomer(customer)" style="margin-left: 10px">Edit</button>
+      <button class="btn btn-warning" [routerLink]="['/edit', customer.id]" style="margin-left: 10px">Edit</button>
       <button class="btn btn-danger" (click)="openDialogDelete(customer)" style="margin-left: 10px">Delete</button>
     </td>
   </tr>
   </tbody>
 </table>
+<div class="page-pipe">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
 
-<app-create-customer [customerEdit]="customerEdit"></app-create-customer>
 
 

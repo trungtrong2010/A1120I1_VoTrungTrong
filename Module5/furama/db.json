@@ -1,0 +1,104 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Võ Trung Trọng",
+      "typeCustomer": {
+        "id": 5,
+        "name": "Member"
+      },
+      "dayOfBirthday": "1999-10-20",
+      "cccd": "206191220",
+      "phone": "0971718030",
+      "email": "trungtrongcr21@gmail.com",
+      "address": "Quảng Nam"
+    },
+    {
+      "id": 2,
+      "name": "Trọng Trọng Trọng",
+      "typeCustomer": {
+        "id": 2,
+        "name": "Platinium"
+      },
+      "dayOfBirthday": "1999-10-20",
+      "cccd": "9999",
+      "phone": "0987654321",
+      "email": "trungtrong99@gmail.com",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": "2112",
+      "name": "121",
+      "typeCustomer": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "dayOfBirthday": "0001-12-12",
+      "cccd": "1212",
+      "phone": "121",
+      "email": "oke@gamil.com",
+      "address": "12121"
+    },
+    {
+      "id": "554",
+      "name": "5445",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "dayOfBirthday": "275760-05-04",
+      "cccd": "454545",
+      "phone": "454545",
+      "email": "v@gmail.com",
+      "address": "454545"
+    },
+    {
+      "id": 3321132,
+      "name": "Võ Trung Trọng",
+      "typeCustomer": {
+        "id": 5,
+        "name": "Member"
+      },
+      "dayOfBirthday": "1999-10-20",
+      "cccd": "206191220",
+      "phone": "0971718030",
+      "email": "trungtrongcr21@gmail.com",
+      "address": "Quảng Nam"
+    },
+    {
+      "id": 321,
+      "name": "Võ Trung Trọng",
+      "typeCustomer": {
+        "id": 5,
+        "name": "Member"
+      },
+      "dayOfBirthday": "1999-10-20",
+      "cccd": "206191220",
+      "phone": "0971718030",
+      "email": "trungtrongcr21@gmail.com",
+      "address": "Quảng Nam"
+    }
+  ],
+  "typeCustomer": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ]
+}

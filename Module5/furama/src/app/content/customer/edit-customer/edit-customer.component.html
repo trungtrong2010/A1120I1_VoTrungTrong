@@ -1,15 +1,15 @@
-<h3>Create customer</h3>
+<h3>Edit customer</h3>
 <p>
   <button class="btn btn-dark" [routerLink]="['/']">Back to customer list</button>
 </p>
 
 <div class="row">
+
   <div class="col-3"></div>
 
   <form class="col-6" [formGroup]="customerForm" (submit)="onSubmit()">
     <label>Id: </label>
     <input formControlName="id" class="form-control">
-
     <label>Name: </label>
     <input formControlName="name" class="form-control" type="text">
     <div *ngIf="(customerForm.get('name')?.hasError('required')
@@ -19,7 +19,11 @@
 
     <label>Type customer: </label>
     <select formControlName="typeCustomer" class="form-control">
-      <option *ngFor="let typeCustomer of typeCustomers" [ngValue]="typeCustomer">{{typeCustomer.name}}</option>
+      <!--      <ng-container >-->
+      <option *ngFor="let typeCustomer of typeCustomers"
+              [selected]="typeCustomer.id === customerForm.value.typeCustomer.id"
+              [ngValue]="typeCustomer">{{typeCustomer.name}}</option>
+      <!--      </ng-container>-->
     </select>
     <div *ngIf="customerForm.get('typeCustomer')?.hasError('required')
 && customerForm.get('typeCustomer')?.touched" style="color: red">Not null !!!
@@ -71,4 +75,5 @@
   </form>
 
   <div class="col-3"></div>
+
 </div>

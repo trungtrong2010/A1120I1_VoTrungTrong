@@ -22,6 +22,6 @@ export let TypeCustomerDao: TypeCustomer[] = [
 {
     id: 5,
     name: 'Member'
-  },
+  }
 
 ];

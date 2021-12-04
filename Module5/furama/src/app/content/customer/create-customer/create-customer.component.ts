@@ -2,8 +2,12 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CustomerDao} from '../../../dao/customer/CustomerDao';
 import {TypeCustomerDao} from '../../../dao/customer/TypeCustomerDao';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {ServiceCustomerService} from '../../../service/service-customer.service';
 import {Customer} from '../../../model/customer/Customer';
-import {element} from 'protractor';
+import {TypeCustomer} from '../../../model/customer/TypeCustomer';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-customer',
@@ -11,14 +15,15 @@ import {element} from 'protractor';
   styleUrls: ['./create-customer.component.css']
 })
 export class CreateCustomerComponent implements OnInit {
+  isSubmit = false;
+  typeCustomers: TypeCustomer[];
 
-  constructor() {
+  constructor(private httpClient: HttpClient,
+              private serviceCustomer: ServiceCustomerService,
+              private router: Router,
+              private snackbar: MatSnackBar) {
   }
 
-  @Input() customerEdit: Customer;
-  isSubmit = false;
-  typeCustomers = TypeCustomerDao;
-  customers = CustomerDao;
 
   customerForm = new FormGroup({
     id: new FormControl(),
@@ -30,24 +35,19 @@ export class CreateCustomerComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     address: new FormControl('', [Validators.required])
   });
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.serviceCustomer.getAllTypeCustomer().subscribe(
+      (data) => this.typeCustomers = data
+    );
+  }
 
   onSubmit() {
-    if (!this.customerForm.invalid) {
-      // console.log(this.customerForm.value.id);
-      // console.log(this.customerForm.value);
-
-      if (this.customerForm.value.id === null) {
-        do {
-          this.customerForm.value.id = Math.floor(Math.random() * 3);
-          // console.log(this.customerForm.value.id);
-          // console.log(this.customers.every(c => c.id !== this.customerForm.value.id));
-        } while (this.customers.some(c => c.id === this.customerForm.value.id));
-        this.customers.push(this.customerForm.value);
-      }
-      // this.customerForm.reset();
-      // console.log(this.customers);
+    if (this.customerForm.valid) {
+      this.serviceCustomer.addCustomer(this.customerForm.value).subscribe();
       this.isSubmit = false;
+      this.snackbar.open('Đã thêm ' + this.customerForm.value.name + ' thành công !', 'OK');
+      this.router.navigateByUrl('/');
     } else {
       this.isSubmit = true;
     }
