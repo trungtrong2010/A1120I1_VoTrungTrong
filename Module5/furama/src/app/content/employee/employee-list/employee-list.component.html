@@ -1,1 +1,30 @@
-<p>employee-list works!</p>
+
+
+<h3>List employee</h3>
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Vị trí</th>
+    <th>Bộ phận</th>
+    <th>Trình độ</th>
+    <th>Day of birthday</th>
+    <th>Email</th>
+<!--    <th>Actions</th>-->
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.id}}</td>
+    <td>{{employee.name}}</td>
+    <td>{{employee.viTri.name}}</td>
+    <td>{{employee.boPhan.name}}</td>
+    <td>{{employee.trinhDo.name}}</td>
+    <td>{{employee.dayOfBirthday}}</td>
+    <td>{{employee.email}}</td>
+  </tr>
+  </tbody>
+</table>

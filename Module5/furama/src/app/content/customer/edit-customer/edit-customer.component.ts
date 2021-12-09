@@ -6,6 +6,8 @@ import {HttpClient} from '@angular/common/http';
 import {ServiceCustomerService} from '../../../service/service-customer.service';
 import {Customer} from '../../../model/customer/Customer';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {colors} from "@angular/cli/utilities/color";
+import {config} from "rxjs";
 
 @Component({
   selector: 'app-edit-customer',
@@ -72,7 +74,13 @@ export class EditCustomerComponent implements OnInit {
     if (this.customerForm.valid) {
       this.serviceCustomer.updateCustomer(this.customerForm.value).subscribe();
       this.isSubmit = false;
-      this.snackbar.open('Đã sửa ' + this.customerForm.value.name + ' thành công !', 'OK');
+      this.snackbar.open('Đã sửa ' + this.customerForm.value.name + ' thành công !', 'OK', {
+        // panelClass: ['mat-toolbar', 'mat-primary']
+      });
+
+
+
+
       this.router.navigateByUrl('/');
     } else {
       this.isSubmit = true;

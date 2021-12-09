@@ -1,10 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CustomerDao} from '../../../dao/customer/CustomerDao';
-import {TypeCustomerDao} from '../../../dao/customer/TypeCustomerDao';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ServiceCustomerService} from '../../../service/service-customer.service';
-import {Customer} from '../../../model/customer/Customer';
 import {TypeCustomer} from '../../../model/customer/TypeCustomer';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';

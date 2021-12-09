@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Chi tiết sổ tiết kiệm</h1>
+
+<mat-dialog-content>
+  <div>
+    <p><span>Mã suất chiếu: </span>CI-{{data.id}}</p>
+    <p><span>Phim: </span>{{data.phim.name}}</p>
+    <p><span>Thời gian: </span>{{data.date | date: 'HH:mm dd/MM/yyyy'}}</p>
+    <p><span>Số lượng vé: </span>{{data.soLuongVe}}</p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Đóng</button>
+</mat-dialog-actions>

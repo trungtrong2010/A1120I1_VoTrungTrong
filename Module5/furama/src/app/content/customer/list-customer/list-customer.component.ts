@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {CustomerDao} from '../../../dao/customer/CustomerDao';
 import {MatDialog} from '@angular/material/dialog';
 import {DetailCustomerComponent} from '../detail-customer/detail-customer.component';
 import {Customer} from '../../../model/customer/Customer';
 import {DeleteCustomerComponent} from '../delete-customer/delete-customer.component';
 import {ServiceCustomerService} from '../../../service/service-customer.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @Component({
   selector: 'app-list-customer',
@@ -17,6 +16,7 @@ export class ListCustomerComponent implements OnInit {
 
   customers: Customer[];
   p: string | number;
+  private msg: string;
 
   constructor(public dialog: MatDialog,
               private customerService: ServiceCustomerService,
@@ -44,7 +44,9 @@ export class ListCustomerComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.customerService.deleteCustomer(customer).subscribe();
-        this.snackbar.open('Đã xóa ' + customer.name, 'Ok');
+        this.snackbar.open('Đã xóa ' + customer.name, 'Ok', {
+          panelClass: ['mat-toolbar', 'mat-warn']
+        });
         this.ngOnInit();
       }
     });
@@ -58,10 +60,10 @@ export class ListCustomerComponent implements OnInit {
   }
 
   sortName() {
-    // this.customerService.sortByName().subscribe(data => {
-    //   this.customers = data;
-    // }
-    // );
+    this.customerService.sortByName().subscribe(data => {
+      this.customers = data;
+    }
+    );
   }
 
 }

@@ -1,0 +1,41 @@
+{
+  "phim": [
+    {
+      "id": 1,
+      "name": "Dragon supper"
+    },
+    {
+      "id": 2,
+      "name": "Dragon supper"
+    }
+  ],
+  "rap": [
+    {
+      "id": 1,
+      "phim": {
+        "id": 1,
+        "name": "Dragon supper"
+      },
+      "date": "2021/12/12 09:00",
+      "soLuongVe": 1
+    },
+    {
+      "id": 2,
+      "phim": {
+        "id": 1,
+        "name": "Conan movide"
+      },
+      "date": "2021/12/12 15:00",
+      "soLuongVe": 1
+    },
+    {
+      "id": 3,
+      "phim": {
+        "id": 1,
+        "name": "Dragon supper"
+      },
+      "date": "2021-12-07T17:00:00.000Z",
+      "soLuongVe": 12
+    }
+  ]
+}

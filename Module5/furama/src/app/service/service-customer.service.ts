@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Customer} from '../model/customer/Customer';
-import {CustomerDao} from '../dao/customer/CustomerDao';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {TypeCustomer} from '../model/customer/TypeCustomer';
@@ -41,10 +40,11 @@ export class ServiceCustomerService {
   }
 
   findByName(name): Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>(this.API_URL_CUSTOMER + '?name_like=' + name);
+    return this.httpClient.get<Customer[]>(this.API_URL_CUSTOMER + '' +
+      '' + name);
   }
 
-  // sortByName(): Observable<Customer[]> {
-  //   return this.httpClient.get<Customer[]>(this.API_URL_CUSTOMER + '_name=?' + '&_order=asc');
-  // }
+  sortByName(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL_CUSTOMER + '?_sort=name');
+  }
 }

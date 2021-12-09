@@ -1,6 +1,6 @@
 <h3>Create customer</h3>
 <p>
-  <button class="btn btn-dark" [routerLink]="['/']">Back to customer list</button>
+  <button class="btn btn-dark" [routerLink]="['/customer']">Back to customer list</button>
 </p>
 
 <div class="row">
@@ -31,6 +31,7 @@
     <div *ngIf="customerForm.get('dayOfBirthday')?.hasError('required')
 && customerForm.get('dayOfBirthday')?.touched" style="color: red">Not null !!!
     </div>
+
     <div style="color: red" *ngIf="isSubmit">Request re-entry ...</div>
 
     <label>CCCD: </label>

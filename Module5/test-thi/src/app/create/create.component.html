@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>Thêm mới sổ tiết kiệm</h1>
+
+<mat-dialog-content>
+  <form [formGroup]="formTietKiem" class="row" (submit)="onSubmit()">
+    <div class="col-1"></div>
+    <div class="col-6">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ngày mở sổ</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="ngayMoSo" [min]="ngayHienTai">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="formTietKiem.get('ngayMoSo').hasError('required')">Please choose an animal</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Thời gian bắt đầu gửi</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="thoigianBatdauGui" [min]="ngayHienTai" [max]="formTietKiem.get('ngayMoSo').value">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="formTietKiem.get('thoigianBatdauGui').hasError('required')">Please choose an animal</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ưu đãi</mat-label>
+        <input type="text" matInput formControlName="uuDai">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Lãi suất</mat-label>
+        <input type="text" matInput formControlName="laiSuat">
+        <mat-error>Not null !!!</mat-error>
+      </mat-form-field>
+
+    </div>
+
+
+    <div class="col-5">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Khách hàng</mat-label>
+        <mat-select formControlName="khachHang" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let khachHang of khachHangs" [value]="khachHang">
+            {{khachHang.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formTietKiem.get('khachHang').hasError('required')">Please choose an animal</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Kỳ hạn</mat-label>
+        <mat-select formControlName="kyHan" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let kyHan of kyHans" [value]="kyHan">
+            {{kyHan}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formTietKiem.get('kyHan').hasError('required')">Please choose an animal</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Số tiền gửi</mat-label>
+        <input type="number" matInput formControlName="soTienGui">
+        <mat-error>Not null !!!</mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="button-submit">
+      <button mat-raised-button mat-dialog-close style="margin-right: 8px;">Hủy</button>
+    <button type="submit" mat-raised-button color="primary">Thêm mới</button>
+    </div>
+  </form>
+</mat-dialog-content>

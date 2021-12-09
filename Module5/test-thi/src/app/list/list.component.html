@@ -1,0 +1,50 @@
+<h3>Danh sách sổ tiết kiệm</h3>
+
+<div class="themmoi">
+  <button mat-raised-button color="accent" (click)="openDialogCreate()">Thêm mới sổ tiết kiệm</button>
+</div>
+
+<div class="form-search">
+  <input placeholder="Mã số sổ" #element>
+  <button mat-button (click)="searchId(element.value)">Tìm kiếm</button>
+<!--  <button mat-raised-button (click)="sortName()">Sort name</button>-->
+</div>
+
+<table class="table table-hover table-striped">
+  <thead>
+  <tr>
+    <th>Mã số sổ</th>
+    <th>Tên khách hàng</th>
+    <th>Mã khách hàng</th>
+    <th>Ngày mở sổ</th>
+    <th>Thời gian bắt đầu gửi</th>
+    <th>Kỳ hạn</th>
+    <th>Số tiền gửi (VNđ)</th>
+    <th>Lãi suất (%/năm)</th>
+    <th>Ưu đãi</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let soTietKiem of soTietKiems | paginate: { itemsPerPage: 3, currentPage: p }">
+    <td>MSS-{{soTietKiem.id}}</td>
+    <td>{{soTietKiem.khachHang.name}}</td>
+    <td>MKH-{{soTietKiem.khachHang.id}}</td>
+    <td>{{soTietKiem.ngayMoSo | date : 'dd/MM/yyyy'}}</td>
+    <td>{{soTietKiem.thoigianBatdauGui | date  :'dd/MM/yyyy'}}</td>
+    <td>{{soTietKiem.kyHan}}</td>
+    <td>{{soTietKiem.soTienGui | number}}</td>
+    <td>{{soTietKiem.laiSuat}}</td>
+    <td>{{soTietKiem.uuDai}}</td>
+    <td>
+      <button class="btn btn-success" (click)="openDialogDetail(soTietKiem)">Chi tiet</button>
+      <button class="btn btn-warning" style="margin-left: 8px" (click)="openDialogEdit(soTietKiem)">Sửa</button>
+      <button class="btn btn-danger" style="margin-left: 8px" (click)="openDialogDelete(soTietKiem)">Xóa</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="page-pipe">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

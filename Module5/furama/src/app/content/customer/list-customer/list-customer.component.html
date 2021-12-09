@@ -1,7 +1,7 @@
 <h3>List customer</h3>
 
 <p>
-  <button class="btn btn-success" [routerLink]="['/create']">Create customer</button>
+  <button class="btn btn-success" [routerLink]="['/customer/create']">Create customer</button>
 </p>
 <div class="form-search">
   <label>Search name: </label>
@@ -32,7 +32,7 @@
     <td>
       <!--      <button mat-button (click)="openDialog()"> Mở hộp thoại</button>-->
       <button class="btn btn-success" (click)="openDialogDetail(customer)">Detail</button>
-      <button class="btn btn-warning" [routerLink]="['/edit', customer.id]" style="margin-left: 10px">Edit</button>
+      <button class="btn btn-warning" [routerLink]="['/customer/edit', customer.id]" style="margin-left: 10px">Edit</button>
       <button class="btn btn-danger" (click)="openDialogDelete(customer)" style="margin-left: 10px">Delete</button>
     </td>
   </tr>

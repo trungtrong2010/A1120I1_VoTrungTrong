@@ -1,0 +1,109 @@
+{
+  "khachHang": [
+    {
+      "id": 1,
+      "name": "Trần Thanh Phương"
+    },
+    {
+      "id": 2,
+      "name": "Võ Trung Trọng"
+    },
+    {
+      "id": 3,
+      "name": "Doãn Mạnh Thắng"
+    }
+  ],
+  "soTietKiem": [
+    {
+      "id": 1,
+      "khachHang": {
+        "id": 2,
+        "name": "Võ Trung Trọng"
+      },
+      "ngayMoSo": "2021-12-14T17:00:00.000Z",
+      "thoigianBatdauGui": "2021-12-13T17:00:00.000Z",
+      "kyHan": "6 tháng",
+      "soTienGui": 32111111,
+      "laiSuat": "10%",
+      "uuDai": "Áo"
+    },
+    {
+      "id": 2,
+      "khachHang": {
+        "id": 2,
+        "name": "Võ Trung Trọng"
+      },
+      "ngayMoSo": "2021-12-14T17:00:00.000Z",
+      "thoigianBatdauGui": "2021-12-13T17:00:00.000Z",
+      "kyHan": "6 tháng",
+      "soTienGui": 32111111,
+      "laiSuat": "10%",
+      "uuDai": "Áo"
+    },
+    {
+      "id": 3,
+      "khachHang": {
+        "id": 2,
+        "name": "Võ Trung Trọng"
+      },
+      "ngayMoSo": "2021-12-14T17:00:00.000Z",
+      "thoigianBatdauGui": "2021-12-13T17:00:00.000Z",
+      "kyHan": "6 tháng",
+      "soTienGui": 32111111,
+      "laiSuat": "10%",
+      "uuDai": "Áo"
+    },
+    {
+      "id": 4,
+      "khachHang": {
+        "id": 2,
+        "name": "Võ Trung Trọng"
+      },
+      "ngayMoSo": "2021-12-14T17:00:00.000Z",
+      "thoigianBatdauGui": "2021-12-13T17:00:00.000Z",
+      "kyHan": "6 tháng",
+      "soTienGui": 32111111,
+      "laiSuat": "10%",
+      "uuDai": "Áo"
+    },
+    {
+      "id": 5,
+      "khachHang": {
+        "id": 2,
+        "name": "Võ Trung Trọng"
+      },
+      "ngayMoSo": "2021-12-14T17:00:00.000Z",
+      "thoigianBatdauGui": "2021-12-13T17:00:00.000Z",
+      "kyHan": "6 tháng",
+      "soTienGui": 32111111,
+      "laiSuat": "10%",
+      "uuDai": "Áo"
+    },
+    {
+      "id": 6,
+      "khachHang": {
+        "id": 2,
+        "name": "Võ Trung Trọng"
+      },
+      "ngayMoSo": "2021-12-14T17:00:00.000Z",
+      "thoigianBatdauGui": "2021-12-13T17:00:00.000Z",
+      "kyHan": "6 tháng",
+      "soTienGui": 32111111,
+      "laiSuat": "10%",
+      "uuDai": "Áo"
+    },
+    {
+      "id": 7,
+      "khachHang": {
+        "id": 1,
+        "name": "Trần Thanh Phương"
+      },
+      "ngayMoSo": "2021-12-07T17:00:00.000Z",
+      "thoigianBatdauGui": "2021-12-07T17:00:00.000Z",
+      "kyHan": "6 tháng",
+      "soTienGui": 21298320918,
+      "laiSuat": "212112",
+      "uuDai": "oke"
+    }
+  ]
+}

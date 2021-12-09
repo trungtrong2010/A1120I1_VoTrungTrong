@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Chi tiết sổ tiết kiệm</h1>
+
+<mat-dialog-content>
+  <div>
+    <p><span>Mã số sổ: </span>MSS-{{data.id}}</p>
+    <p><span>Tên khách hàng: </span>{{data.khachHang.name}}</p>
+    <p><span>Mã khách hàng: </span>MKH-{{data.khachHang.id}}</p>
+    <p><span>Ngày mở sổ: </span>{{data.ngayMoSo | date : 'dd/MM/yyyy'}}</p>
+    <p><span>Thời gian bắt đàu mở: </span>{{data.thoigianBatdauGui | date : 'dd/MM/yyyy'}}</p>
+    <p><span>Kỳ hạn: </span>{{data.kyHan}}</p>
+    <p><span>Số tiền gửi: </span>{{data.soTienGui | number}}</p>
+    <p><span>Lãi suất (%/năm): </span>{{data.laiSuat}}</p>
+    <p><span>Ưu đãi: </span>{{data.uuDai}}</p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Đóng</button>
+</mat-dialog-actions>

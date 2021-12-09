@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Thêm mới sổ tiết kiệm</h1>
+
+<mat-dialog-content>
+  <form [formGroup]="formGroup" (submit)="onSubmit()">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput type="datetime-local" formControlName="date" [min]="ngayHienTai">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="formGroup.get('date').hasError('required')">Please choose an animal</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Số lượng vé</mat-label>
+        <input type="number" matInput formControlName="soLuongVe">
+        <mat-error >Please choose an animal</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Phim</mat-label>
+        <mat-select formControlName="phim" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let phim of phims" [value]="phim">
+            {{phim.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('phim').hasError('required')">Please choose an animal</mat-error>
+      </mat-form-field>
+
+    <div class="button-submit">
+      <button mat-raised-button mat-dialog-close style="margin-right: 8px;">Hủy</button>
+      <button type="submit" mat-raised-button color="primary">Thêm mới</button>
+    </div>
+  </form>
+</mat-dialog-content>
